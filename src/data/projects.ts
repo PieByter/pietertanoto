@@ -100,4 +100,47 @@ export const projects: Project[] = [
     liveUrl: "https://pietertanoto.vercel.app",
     githubUrl: "https://github.com/pietertanoto",
   },
+    {
+    id: 7,
+    title: "RESTful API Server",
+    description:
+      "A refactored Express.js REST API with modular architecture — separate models, routes, middlewares, and config — deployed seamlessly on Vercel.",
+    image: "/images/project-api.jpg",
+    tags: [
+      { icon: "SiNodedotjs", text: "Node.js" },
+      { icon: "SiExpress", text: "Express.js" },
+      { icon: "SiMongodb", text: "MongoDB" },
+      { icon: "SiVercel", text: "Vercel" },
+    ],
+    githubUrl: "https://github.com/pietertanoto",
+  },
+  {
+    id: 8,
+    title: "n8n Workflow Automation",
+    description:
+      "Custom automation workflows built with n8n to streamline data processing, notifications, and integrations across multiple platforms.",
+    image: "/images/project-n8n.jpg",
+    tags: [
+      { icon: "Sinn8n", text: "n8n" },
+      { icon: "SiDocker", text: "Docker" },
+      { icon: "SiPostman", text: "REST APIs" },
+      { icon: "SiAutomation", text: "Automation" },
+    ],
+    githubUrl: "https://github.com/pietertanoto",
+  },
+  {
+    id: 9,
+    title: "Portfolio Website",
+    description:
+      "This very website — a modern, performant portfolio built with Next.js, Tailwind CSS, and Framer Motion with dark/light mode and smooth animations.",
+    image: "/images/project-portfolio.jpg",
+    tags: [
+      { icon: "SiNextdotjs", text: "Next.js" },
+      { icon: "SiTypescript", text: "TypeScript" },
+      { icon: "SiFramer", text: "Framer Motion" },
+      { icon: "SiTailwindcss", text: "Tailwind CSS" },
+    ],
+    liveUrl: "https://pietertanoto.vercel.app",
+    githubUrl: "https://github.com/pietertanoto",
+  },
 ];

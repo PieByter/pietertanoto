@@ -1,7 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa6";
+import {  
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaTiktok,
+  FaStackOverflow,
+  FaXTwitter,
+  FaYoutube, } from "react-icons/fa6";
+import { HiMail } from "react-icons/hi";
 import { HiArrowUp } from "react-icons/hi2";
 
 const quickLinks = [
@@ -14,9 +22,15 @@ const quickLinks = [
 ];
 
 const socials = [
-  { icon: FaGithub, href: "https://github.com/pietertanoto", label: "GitHub" },
-  { icon: FaLinkedin, href: "https://linkedin.com/in/pietertanoto", label: "LinkedIn" },
-  { icon: FaInstagram, href: "https://instagram.com/pietertanoto", label: "Instagram" },
+  { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub" },
+  { icon: FaLinkedin, href: "https://linkedin.com/in/pieter-tanoto", label: "LinkedIn"},
+  { icon: FaYoutube, href: "https://youtube.com/@piebyter", label: "YouTube" },
+  { icon: FaInstagram, href: "https://instagram.com/ptr.tno", label: "Instagram"},
+  { icon: FaXTwitter, href: "https://twitter.com/piers_tno", label: "Twitter"},
+  { icon: FaTiktok, href: "https://tiktok.com/@piers_tno", label: "TikTok"},
+  { icon: FaStackOverflow, href: "https://stackoverflow.com/users/12345678/pieter-tanoto", label: "Stack Overflow"},
+  // { icon: FaHackerrank, href: "https://hackerrank.com/pietertanoto", label: "HackerRank", color: "#00a651" },
+  { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email" },
 ];
 
 export default function Footer() {
@@ -60,7 +74,7 @@ export default function Footer() {
               PT.
             </div>
             <p style={{ fontSize: "0.88rem", color: "#64748b", maxWidth: "220px", lineHeight: 1.65 }}>
-              Full Stack Developer building modern web experiences.
+              Software Developer building modern web experiences.
             </p>
           </div>
 
@@ -177,7 +191,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Pieter Tanoto. All rights reserved.
           </p>
           <p style={{ fontSize: "0.82rem", color: "#475569" }}>
-            Built with Next.js & Tailwind CSS 
+            Built with Next.js & Tailwind 
           </p>
         </div>
       </div>

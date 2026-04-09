@@ -82,7 +82,7 @@ export default function Projects() {
             gap: "1.5rem",
           }}
         >
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence>
             {displayed.map((project, i) => (
               <motion.div
                 key={project.id}

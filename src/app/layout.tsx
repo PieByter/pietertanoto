@@ -15,24 +15,24 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Pieter Tanoto — Full Stack Developer",
+  title: "Pieter Tanoto's Portfolio",
   description:
-    "Personal portfolio of Pieter Tanoto, a Full Stack Developer & Software Engineer specializing in modern web technologies.",
-  keywords: ["Pieter Tanoto", "Full Stack Developer", "Software Engineer", "Portfolio", "React", "Next.js"],
+    "Personal portfolio of Pieter Tanoto, a Software Developer & Engineer specializing in modern web technologies.",
+  keywords: ["Pieter Tanoto", "Software Developer", "Engineer", "Portfolio", "Android", "Web Development", "Node.js", "Kotlin", "Java", "Next.js", "React", "TypeScript"],
   authors: [{ name: "Pieter Tanoto" }],
   openGraph: {
-    title: "Pieter Tanoto — Full Stack Developer",
+    title: "Pieter Tanoto",
     description:
-      "Personal portfolio of Pieter Tanoto, a Full Stack Developer & Software Engineer.",
+      "Personal portfolio of Pieter Tanoto, a Software Developer & Engineer.",
     url: "https://pietertanoto.vercel.app",
     siteName: "Pieter Tanoto Portfolio",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pieter Tanoto — Full Stack Developer",
-    description: "Personal portfolio of Pieter Tanoto, a Full Stack Developer & Software Engineer.",
-    creator: "@pietertanoto",
+    title: "Pieter Tanoto",
+    description: "Personal portfolio of Pieter Tanoto, a Software Developer & Engineer.",
+    creator: "@piers_tno",
   },
 };
 

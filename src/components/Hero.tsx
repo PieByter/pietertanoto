@@ -7,18 +7,22 @@ import {
   FaLinkedin,
   FaInstagram,
   FaTiktok,
+  FaStackOverflow,
+  FaXTwitter,
+  FaYoutube,
 } from "react-icons/fa6";
-import { FaXTwitter, FaHackerrank } from "react-icons/fa6";
 import { HiMail } from "react-icons/hi";
 import { HiArrowDown } from "react-icons/hi2";
 
 const socialLinks = [
   { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", color: "#38bdf8" },
   { icon: FaLinkedin, href: "https://linkedin.com/in/pieter-tanoto", label: "LinkedIn", color: "#0A66C2" },
+  { icon: FaYoutube, href: "https://youtube.com/@piebyter", label: "YouTube", color: "#FF0000" },
   { icon: FaInstagram, href: "https://instagram.com/ptr.tno", label: "Instagram", color: "#E1306C" },
-  { icon: FaXTwitter, href: "https://twitter.com/piers_tno", label: "X / Twitter", color: "#38bdf8" },
-  { icon: FaTiktok, href: "https://tiktok.com/@pietertanoto", label: "TikTok", color: "#ff0050" },
-  { icon: FaHackerrank, href: "https://hackerrank.com/pietertanoto", label: "HackerRank", color: "#00a651" },
+  { icon: FaXTwitter, href: "https://twitter.com/piers_tno", label: "Twitter", color: "#38bdf8" },
+  { icon: FaTiktok, href: "https://tiktok.com/@piers_tno", label: "TikTok", color: "#ff0050" },
+  { icon: FaStackOverflow, href: "https://stackoverflow.com/users/12345678/pieter-tanoto", label: "Stack Overflow", color: "#f48024" },
+  // { icon: FaHackerrank, href: "https://hackerrank.com/pietertanoto", label: "HackerRank", color: "#00a651" },
   { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email", color: "#38bdf8" },
 ];
 
@@ -139,7 +143,7 @@ export default function Hero() {
               fontFamily: "var(--font-display)",
             }}
           >
-            Full Stack Developer &amp; Software Engineer
+            Mobile Developer | Backend Developer | QA Engineer
           </motion.p>
 
           <motion.p
@@ -155,9 +159,10 @@ export default function Hero() {
               marginBottom: "2.5rem",
             }}
           >
-            I build scalable, performant web applications and developer tools
-            with a passion for clean code and great user experiences. Currently
-            focused on Next.js, TypeScript, and cloud-native architectures.
+            Computer Science graduate from Universitas Sumatera Utara focused
+            on backend and mobile development. I design scalable systems with
+            Kotlin and Java, build reliable Android apps, and embed testing
+            early to deliver robust, high-performance software.
           </motion.p>
 
           {/* CTA Buttons */}

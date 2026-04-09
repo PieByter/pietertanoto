@@ -6,18 +6,20 @@ import {
   FaLinkedin,
   FaInstagram,
   FaTiktok,
+  FaStackOverflow,
+  FaYoutube,
+  FaXTwitter,
 } from "react-icons/fa6";
-import { FaXTwitter, FaHackerrank } from "react-icons/fa6";
 import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import { email, phone } from "@/data/socials";
 
 const socialLinks = [
   { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", iconColor: "var(--text-primary)", hoverColor: "#38bdf8" },
   { icon: FaLinkedin, href: "https://linkedin.com/in/pieter-tanoto", label: "LinkedIn", iconColor: "#0A66C2", hoverColor: "#0A66C2" },
+  { icon: FaYoutube, href: "https://youtube.com/@piebyter", label: "YouTube", iconColor: "#FF0000", hoverColor: "#FF0000" },
   { icon: FaInstagram, href: "https://instagram.com/ptr.tno", label: "Instagram", iconColor: "#E1306C", hoverColor: "#E1306C" },
-  { icon: FaXTwitter, href: "https://twitter.com/piers_tno", label: "X / Twitter", iconColor: "var(--text-primary)", hoverColor: "#38bdf8" },
-  { icon: FaTiktok, href: "https://tiktok.com/@pietertanoto", label: "TikTok", iconColor: "#ff0050", hoverColor: "#ff0050" },
-  { icon: FaHackerrank, href: "https://hackerrank.com/pietertanoto", label: "HackerRank", iconColor: "#00a651", hoverColor: "#00EA64" },
+  { icon: FaStackOverflow, href: "https://stackoverflow.com/users/12345678/pieter-tanoto", label: "Stack Overflow", iconColor: "#f48024", hoverColor: "#f48024" },
+  { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email", iconColor: "#38bdf8", hoverColor: "#38bdf8" },
 ];
 
 const contactItems = [

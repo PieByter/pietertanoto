@@ -23,7 +23,7 @@ export default function Certifications() {
           style={{ marginBottom: "3rem", textAlign: "center" }}
         >
           <h2 className="section-title">
-            Certifications <span className="gradient-text">&amp; Awards</span>
+            Certifications <span className="gradient-text">& Skills</span>
           </h2>
           <p className="section-subtitle">Credentials that validate my expertise</p>
         </motion.div>
