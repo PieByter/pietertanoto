@@ -10,6 +10,8 @@ import {
   FaStackOverflow,
   FaXTwitter,
   FaYoutube,
+  FaDiscord,
+  FaSpotify,
 } from "react-icons/fa6";
 import { HiMail } from "react-icons/hi";
 import { HiArrowDown } from "react-icons/hi2";
@@ -23,6 +25,8 @@ const socialLinks = [
   { icon: FaTiktok, href: "https://tiktok.com/@piers_tno", label: "TikTok", color: "#ff0050" },
   { icon: FaStackOverflow, href: "https://stackoverflow.com/users/12345678/pieter-tanoto", label: "Stack Overflow", color: "#f48024" },
   // { icon: FaHackerrank, href: "https://hackerrank.com/pietertanoto", label: "HackerRank", color: "#00a651" },
+    { icon: FaDiscord, href: "https://discord.gg/your-server", label: "Discord", color: "#5865F2" },
+  { icon: FaSpotify, href: "https://open.spotify.com/user/your-spotify-user", label: "Spotify", color: "#1DB954" },
   { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email", color: "#38bdf8" },
 ];
 

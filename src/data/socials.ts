@@ -43,6 +43,18 @@ export const socials: Social[] = [
     color: "#00EA64",
   },
   {
+    name: "Spotify",
+    url: "https://open.spotify.com/user/pietertanoto",
+    icon: "FaSpotify",
+    color: "#1DB954",
+  },
+  {
+    name: "Discord",
+    url: "https://discord.com/users/pietertanoto",
+    icon: "FaDiscord",
+    color: "#5865F2",
+  },
+  {
     name: "Email",
     url: "mailto:pietertanoto01@email.com",
     icon: "HiMail",
