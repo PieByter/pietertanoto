@@ -315,4 +315,13 @@ main {
   .section {
     padding: 70px 0;
   }
+  .section-title {
+    text-align: center;
+  }
+  .section-subtitle {
+    text-align: center;
+  }
+  .projects-filter-row {
+    justify-content: center;
+  }
 }

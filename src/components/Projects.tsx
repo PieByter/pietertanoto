@@ -50,7 +50,7 @@ export default function Projects() {
           <p className="section-subtitle">Things I&apos;ve built and shipped</p>
 
           {/* Filter Tags */}
-          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "1.5rem" }}>
+          <div className="projects-filter-row" style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "1.5rem" }}>
             {allTags.slice(0, 10).map((tag) => (
               <button
                 key={tag}

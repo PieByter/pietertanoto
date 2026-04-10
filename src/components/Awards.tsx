@@ -34,6 +34,9 @@ export default function Awards() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const blockImageActions = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+  };
 
   const total = awards.length;
 
@@ -212,14 +215,38 @@ export default function Awards() {
                       overflow: "hidden",
                       background: `linear-gradient(135deg, ${award.color}12 0%, ${award.color}05 100%)`,
                     }}
+                    onContextMenu={blockImageActions}
+                    onDragStart={blockImageActions}
+                    onCopy={blockImageActions}
+                    onCut={blockImageActions}
+                    onPaste={blockImageActions}
                   >
                     <Image
                       src={award.image}
                       alt={award.title}
                       fill
                       sizes={`${cardWidth}px`}
-                      style={{ objectFit: "cover" }}
+                      draggable={false}
+                      style={{ objectFit: "cover", userSelect: "none", pointerEvents: "none" }}
                       priority={isCenter}
+                      onContextMenu={blockImageActions}
+                      onDragStart={blockImageActions}
+                      onCopy={blockImageActions}
+                    />
+                    <div
+                      aria-hidden="true"
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        zIndex: 2,
+                        background: "transparent",
+                        userSelect: "none",
+                      }}
+                      onContextMenu={blockImageActions}
+                      onDragStart={blockImageActions}
+                      onCopy={blockImageActions}
+                      onCut={blockImageActions}
+                      onPaste={blockImageActions}
                     />
                     {!isCenter && (
                       <div
@@ -227,6 +254,7 @@ export default function Awards() {
                           position: "absolute",
                           inset: 0,
                           background: "rgba(0,0,0,0.18)",
+                          zIndex: 3,
                         }}
                       />
                     )}
@@ -261,9 +289,9 @@ export default function Awards() {
                           color: "var(--text-primary)",
                           lineHeight: 1.35,
                           margin: 0,
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          whiteSpace: "nowrap",
+                          whiteSpace: "normal",
+                          overflowWrap: "anywhere",
+                          wordBreak: "break-word",
                         }}
                       >
                         {award.title}

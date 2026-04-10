@@ -20,7 +20,7 @@ export const socials: Social[] = [
   },
   {
     name: "Instagram",
-    url: "https://instagram.com/ptr.tno",
+    url: "https://instagram.com/pietertno",
     icon: "FaInstagram",
     color: "#E1306C",
   },
@@ -32,7 +32,7 @@ export const socials: Social[] = [
   },
   {
     name: "TikTok",
-    url: "https://tiktok.com/@pietertanoto",
+    url: "https://tiktok.com/@pietertno",
     icon: "FaTiktok",
     color: "#ff0050",
   },
@@ -44,7 +44,7 @@ export const socials: Social[] = [
   },
   {
     name: "Spotify",
-    url: "https://open.spotify.com/user/pietertanoto",
+    url: "https://open.spotify.com/user/PieByter",
     icon: "FaSpotify",
     color: "#1DB954",
   },
@@ -63,4 +63,4 @@ export const socials: Social[] = [
 ];
 
 export const email = "pietertanoto01@email.com";
-export const phone = "+62 877-4821-5683";
+export const phone = "+(62) 877-4821-5683";

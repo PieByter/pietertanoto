@@ -17,7 +17,7 @@ const socialLinks = [
   { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", iconColor: "var(--text-primary)", hoverColor: "#38bdf8" },
   { icon: FaLinkedin, href: "https://linkedin.com/in/pieter-tanoto", label: "LinkedIn", iconColor: "#0A66C2", hoverColor: "#0A66C2" },
   { icon: FaYoutube, href: "https://youtube.com/@piebyter", label: "YouTube", iconColor: "#FF0000", hoverColor: "#FF0000" },
-  { icon: FaInstagram, href: "https://instagram.com/ptr.tno", label: "Instagram", iconColor: "#E1306C", hoverColor: "#E1306C" },
+  { icon: FaInstagram, href: "https://instagram.com/pietertno", label: "Instagram", iconColor: "#E1306C", hoverColor: "#E1306C" },
   { icon: FaStackOverflow, href: "https://stackoverflow.com/users/12345678/pieter-tanoto", label: "Stack Overflow", iconColor: "#f48024", hoverColor: "#f48024" },
   { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email", iconColor: "#38bdf8", hoverColor: "#38bdf8" },
 ];

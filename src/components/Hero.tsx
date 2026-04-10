@@ -20,9 +20,9 @@ const socialLinks = [
   { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", color: "#38bdf8" },
   { icon: FaLinkedin, href: "https://linkedin.com/in/pieter-tanoto", label: "LinkedIn", color: "#0A66C2" },
   { icon: FaYoutube, href: "https://youtube.com/@piebyter", label: "YouTube", color: "#FF0000" },
-  { icon: FaInstagram, href: "https://instagram.com/ptr.tno", label: "Instagram", color: "#E1306C" },
+  { icon: FaInstagram, href: "https://instagram.com/pietertno", label: "Instagram", color: "#E1306C" },
   { icon: FaXTwitter, href: "https://twitter.com/piers_tno", label: "Twitter", color: "#38bdf8" },
-  { icon: FaTiktok, href: "https://tiktok.com/@piers_tno", label: "TikTok", color: "#ff0050" },
+  { icon: FaTiktok, href: "https://tiktok.com/@pietertno", label: "TikTok", color: "#ff0050" },
   { icon: FaStackOverflow, href: "https://stackoverflow.com/users/12345678/pieter-tanoto", label: "Stack Overflow", color: "#f48024" },
   // { icon: FaHackerrank, href: "https://hackerrank.com/pietertanoto", label: "HackerRank", color: "#00a651" },
     { icon: FaDiscord, href: "https://discord.gg/your-server", label: "Discord", color: "#5865F2" },
@@ -40,6 +40,10 @@ const fadeUp: Variants = {
 };
 
 export default function Hero() {
+  const blockImageActions = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <section
       id="home"
@@ -175,6 +179,7 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
+            className="hero-cta-row"
             style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginBottom: "2.5rem" }}
           >
             <a
@@ -199,6 +204,7 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
+            className="hero-social-row"
             style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}
           >
             {socialLinks.map(({ icon: Icon, href, label, color }) => (
@@ -291,18 +297,27 @@ export default function Hero() {
                 zIndex: 1,
                 background: "linear-gradient(135deg, #0a192f, #1e3a5f)",
               }}
+              onContextMenu={blockImageActions}
+              onDragStart={blockImageActions}
+              onCopy={blockImageActions}
+              onCut={blockImageActions}
+              onPaste={blockImageActions}
             >
               <Image
                 src="/images/profile.png"
                 alt="Pieter Tanoto"
                 fill
                 sizes="(max-width: 768px) 220px, 300px"
-                style={{ objectFit: "cover" }}
+                draggable={false}
+                style={{ objectFit: "cover", userSelect: "none" }}
                 priority
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = "none";
                 }}
+                onContextMenu={blockImageActions}
+                onDragStart={blockImageActions}
+                onCopy={blockImageActions}
               />
               {/* Fallback initials */}
               <div
@@ -320,6 +335,7 @@ export default function Hero() {
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
                   zIndex: -1,
+                  userSelect: "none",
                 }}
               >
                 PT
@@ -396,6 +412,20 @@ export default function Hero() {
           .hero-img-wrap > div {
             width: 220px !important;
             height: 220px !important;
+          }
+          .hero-grid > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .hero-grid > div p {
+            max-width: 100% !important;
+          }
+          .hero-cta-row {
+            justify-content: center !important;
+          }
+          .hero-social-row {
+            justify-content: center !important;
           }
         }
       `}</style>
