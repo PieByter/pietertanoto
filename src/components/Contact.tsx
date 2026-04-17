@@ -5,21 +5,21 @@ import {
   FaGithub,
   FaLinkedin,
   FaInstagram,
-  FaTiktok,
-  FaStackOverflow,
   FaYoutube,
-  FaXTwitter,
+  FaWhatsapp
 } from "react-icons/fa6";
 import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import { email, phone } from "@/data/socials";
 
 const socialLinks = [
+    {icon : FaWhatsapp, href: "https://wa.me/6287748215683", label: "WhatsApp", iconColor: "#25D366", hoverColor: "#25D366" },
+  { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email", iconColor: "#38bdf8", hoverColor: "#38bdf8" },
   { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", iconColor: "var(--text-primary)", hoverColor: "#38bdf8" },
   { icon: FaLinkedin, href: "https://linkedin.com/in/pieter-tanoto", label: "LinkedIn", iconColor: "#0A66C2", hoverColor: "#0A66C2" },
   { icon: FaYoutube, href: "https://youtube.com/@piebyter", label: "YouTube", iconColor: "#FF0000", hoverColor: "#FF0000" },
   { icon: FaInstagram, href: "https://instagram.com/pietertno", label: "Instagram", iconColor: "#E1306C", hoverColor: "#E1306C" },
-  { icon: FaStackOverflow, href: "https://stackoverflow.com/users/12345678/pieter-tanoto", label: "Stack Overflow", iconColor: "#f48024", hoverColor: "#f48024" },
-  { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email", iconColor: "#38bdf8", hoverColor: "#38bdf8" },
+  // { icon: FaStackOverflow, href: "https://stackoverflow.com/users/12345678/pieter-tanoto", label: "Stack Overflow", iconColor: "#f48024", hoverColor: "#f48024" },
+
 ];
 
 const contactItems = [
@@ -146,11 +146,13 @@ export default function Contact() {
 
               {/* Primary CTA */}
               <a
-                href={`mailto:${email}`}
+                href="https://wa.me/6287748215683"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary"
                 style={{ width: "100%", justifyContent: "center" }}
               >
-                <HiMail /> Say Hello
+                <FaWhatsapp /> Reach Me Here
               </a>
             </div>
           </motion.div>

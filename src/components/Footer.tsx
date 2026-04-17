@@ -9,6 +9,7 @@ import {
   FaStackOverflow,
   FaXTwitter,
   FaYoutube, } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa6";
 import { HiMail } from "react-icons/hi";
 import { HiArrowUp } from "react-icons/hi2";
 
@@ -22,6 +23,7 @@ const quickLinks = [
 ];
 
 const socials = [
+  { icon: FaWhatsapp, href: "https://wa.me/6287748215683", label: "WhatsApp" },
   { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub" },
   { icon: FaLinkedin, href: "https://linkedin.com/in/pieter-tanoto", label: "LinkedIn"},
   { icon: FaYoutube, href: "https://youtube.com/@piebyter", label: "YouTube" },

@@ -12,11 +12,13 @@ import {
   FaYoutube,
   FaDiscord,
   FaSpotify,
+  FaWhatsapp,
 } from "react-icons/fa6";
 import { HiMail } from "react-icons/hi";
 import { HiArrowDown } from "react-icons/hi2";
 
 const socialLinks = [
+  { icon: FaWhatsapp, href: "https://wa.me/6287748215683", label: "WhatsApp", color: "#25D366" },
   { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", color: "#38bdf8" },
   { icon: FaLinkedin, href: "https://linkedin.com/in/pieter-tanoto", label: "LinkedIn", color: "#0A66C2" },
   { icon: FaYoutube, href: "https://youtube.com/@piebyter", label: "YouTube", color: "#FF0000" },

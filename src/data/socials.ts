@@ -7,6 +7,12 @@ export interface Social {
 
 export const socials: Social[] = [
   {
+    name: "WhatsApp",
+    url: "https://wa.me/6287748215683",
+    icon: "FaWhatsapp",
+    color: "#25D366",
+  },
+  {
     name: "GitHub",
     url: "https://github.com/Piebyter",
     icon: "FaGithub",
