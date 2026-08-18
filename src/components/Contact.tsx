@@ -15,8 +15,8 @@ import SectionHeading from "./SectionHeading";
 
 const socialLinks = [
   { icon: FaWhatsapp, href: "https://wa.me/6287748215683", label: "WhatsApp", iconColor: "#25D366", hoverColor: "#25D366" },
-  { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email", iconColor: "#38bdf8", hoverColor: "#38bdf8" },
-  { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", iconColor: "var(--text-primary)", hoverColor: "#38bdf8" },
+  { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email", iconColor: "var(--accent)", hoverColor: "var(--accent)" },
+  { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", iconColor: "var(--text-primary)", hoverColor: "var(--accent)" },
   { icon: FaLinkedin, href: "https://linkedin.com/in/pieter-tanoto", label: "LinkedIn", iconColor: "#0A66C2", hoverColor: "#0A66C2" },
   { icon: FaYoutube, href: "https://youtube.com/@piebyter", label: "YouTube", iconColor: "#FF0000", hoverColor: "#FF0000" },
   { icon: FaInstagram, href: "https://instagram.com/pietertno", label: "Instagram", iconColor: "#E1306C", hoverColor: "#E1306C" },
@@ -28,14 +28,14 @@ const contactItems = [
     label: "Email",
     value: email,
     href: `mailto:${email}`,
-    color: "#38bdf8",
+    color: "var(--accent)",
   },
   {
     icon: HiPhone,
     label: "Phone",
     value: phone,
     href: `tel:${phone}`,
-    color: "#818cf8",
+    color: "var(--accent-2)",
   },
   {
     icon: HiLocationMarker,
@@ -92,7 +92,7 @@ export default function Contact() {
               style={{
                 padding: "2rem",
                 background: "linear-gradient(135deg, rgba(14, 165, 233, 0.07) 0%, rgba(129, 140, 248, 0.07) 100%)",
-                border: "1px solid rgba(56, 189, 248, 0.15)",
+                border: "1px solid var(--accent-border)",
               }}
             >
               <h3

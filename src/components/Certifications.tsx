@@ -160,7 +160,7 @@ export default function Certifications() {
                     style={{
                       fontSize: "0.78rem",
                       color: "var(--text-muted)",
-                      background: "rgba(255,255,255,0.04)",
+                      background: "var(--bg-card-hover)",
                       border: "1px solid var(--border-color)",
                       padding: "3px 10px",
                       borderRadius: "6px",

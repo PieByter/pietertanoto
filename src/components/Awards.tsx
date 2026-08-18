@@ -358,9 +358,9 @@ export default function Awards() {
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.background = "rgba(56,189,248,0.15)";
-                el.style.borderColor = "rgba(56,189,248,0.4)";
-                el.style.color = "#38bdf8";
+                el.style.background = "var(--accent-soft)";
+                el.style.borderColor = "var(--accent-border)";
+                el.style.color = "var(--accent)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
@@ -400,9 +400,9 @@ export default function Awards() {
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.background = "rgba(56,189,248,0.15)";
-                el.style.borderColor = "rgba(56,189,248,0.4)";
-                el.style.color = "#38bdf8";
+                el.style.background = "var(--accent-soft)";
+                el.style.borderColor = "var(--accent-border)";
+                el.style.color = "var(--accent)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;

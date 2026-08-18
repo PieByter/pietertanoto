@@ -13,12 +13,12 @@ import { HiMail } from "react-icons/hi";
 import { HiArrowDown } from "react-icons/hi2";
 
 const socialLinks = [
-  { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", color: "#38bdf8" },
+  { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", color: "var(--accent)" },
   { icon: FaLinkedin, href: "https://linkedin.com/in/pieter-tanoto", label: "LinkedIn", color: "#0A66C2" },
   { icon: FaWhatsapp, href: "https://wa.me/6287748215683", label: "WhatsApp", color: "#25D366" },
   { icon: FaYoutube, href: "https://youtube.com/@piebyter", label: "YouTube", color: "#FF0000" },
   { icon: FaInstagram, href: "https://instagram.com/pietertno", label: "Instagram", color: "#E1306C" },
-  { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email", color: "#38bdf8" },
+  { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email", color: "var(--accent)" },
 ];
 
 const heroStats = [
@@ -103,17 +103,17 @@ export default function Hero() {
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              background: "rgba(56, 189, 248, 0.1)",
-              border: "1px solid rgba(56, 189, 248, 0.2)",
+              background: "var(--accent-soft)",
+              border: "1px solid var(--accent-border)",
               borderRadius: "100px",
               padding: "6px 16px",
               fontSize: "0.85rem",
-              color: "#38bdf8",
+              color: "var(--accent)",
               marginBottom: "1.5rem",
               fontWeight: 500,
             }}
           >
-            <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#38bdf8", display: "inline-block", animation: "pulse 2s infinite" }} />
+            <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--accent)", display: "inline-block", animation: "pulse 2s infinite" }} />
             Available for opportunities
           </motion.div>
 
@@ -142,7 +142,7 @@ export default function Hero() {
             animate="visible"
             style={{
               fontSize: "clamp(1.1rem, 2.5vw, 1.35rem)",
-              color: "#38bdf8",
+              color: "var(--accent)",
               fontWeight: 600,
               marginBottom: "1.2rem",
               fontFamily: "var(--font-display)",
@@ -249,8 +249,8 @@ export default function Hero() {
                   transition: "background 0.2s ease, border-color 0.2s ease, transform 0.2s ease",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "rgba(56,189,248,0.15)";
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(56,189,248,0.4)";
+                  (e.currentTarget as HTMLElement).style.background = "var(--accent-soft)";
+                  (e.currentTarget as HTMLElement).style.borderColor = "var(--accent-border)";
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.background = "var(--icon-circle-bg)";
@@ -313,7 +313,7 @@ export default function Hero() {
                 borderRadius: "50%",
                 overflow: "hidden",
                 zIndex: 1,
-                background: "linear-gradient(135deg, #0a192f, #1e3a5f)",
+                background: "var(--profile-bg)",
               }}
               onContextMenu={blockImageActions}
               onDragStart={blockImageActions}
@@ -368,8 +368,8 @@ export default function Hero() {
                 position: "absolute",
                 bottom: -16,
                 right: -16,
-                background: "rgba(56, 189, 248, 0.15)",
-                border: "1px solid rgba(56, 189, 248, 0.3)",
+                background: "var(--accent-soft)",
+                border: "1px solid var(--accent-border)",
                 backdropFilter: "blur(10px)",
                 borderRadius: "12px",
                 padding: "10px 16px",
@@ -378,7 +378,7 @@ export default function Hero() {
               }}
             >
               <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>Open to work</div>
-              <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "#38bdf8" }}>💼 Hire Me</div>
+              <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--accent)" }}>💼 Hire Me</div>
             </motion.div>
           </div>
         </motion.div>
@@ -406,7 +406,7 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          style={{ color: "#38bdf8" }}
+          style={{ color: "var(--accent)" }}
         >
           <HiArrowDown />
         </motion.div>

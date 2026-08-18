@@ -73,14 +73,14 @@ export default function Footer() {
             >
               PT.
             </div>
-            <p style={{ fontSize: "0.88rem", color: "#64748b", maxWidth: "220px", lineHeight: 1.65 }}>
+            <p style={{ fontSize: "0.88rem", color: "var(--text-secondary)", maxWidth: "220px", lineHeight: 1.65 }}>
               Software Developer building modern web experiences.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <p style={{ fontSize: "0.8rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "1rem" }}>
+            <p style={{ fontSize: "0.8rem", fontWeight: 700, color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "1rem" }}>
               Navigation
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
@@ -94,14 +94,14 @@ export default function Footer() {
                   style={{
                     background: "none",
                     border: "none",
-                    color: "#64748b",
+                    color: "var(--text-secondary)",
                     fontSize: "0.9rem",
                     cursor: "pointer",
                     transition: "color 0.2s ease",
                     padding: "2px 0",
                   }}
-                  onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#38bdf8")}
-                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "#64748b")}
+                  onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--accent)")}
+                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-secondary)")}
                 >
                   {link.label}
                 </button>
@@ -125,25 +125,25 @@ export default function Footer() {
                     width: 38,
                     height: 38,
                     borderRadius: "8px",
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.06)",
+                    background: "var(--icon-circle-bg)",
+                    border: "1px solid var(--icon-circle-border)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "#94a3b8",
+                    color: "var(--text-secondary)",
                     fontSize: "1rem",
                     textDecoration: "none",
                     transition: "all 0.2s ease",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "rgba(56,189,248,0.1)";
-                    (e.currentTarget as HTMLElement).style.color = "#38bdf8";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(56,189,248,0.2)";
+                    (e.currentTarget as HTMLElement).style.background = "var(--accent-soft)";
+                    (e.currentTarget as HTMLElement).style.color = "var(--accent)";
+                    (e.currentTarget as HTMLElement).style.borderColor = "var(--accent-border)";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)";
-                    (e.currentTarget as HTMLElement).style.color = "#94a3b8";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.06)";
+                    (e.currentTarget as HTMLElement).style.background = "var(--icon-circle-bg)";
+                    (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)";
+                    (e.currentTarget as HTMLElement).style.borderColor = "var(--icon-circle-border)";
                   }}
                 >
                   <Icon />
@@ -160,9 +160,9 @@ export default function Footer() {
                 alignItems: "center",
                 gap: "6px",
                 fontSize: "0.82rem",
-                color: "#38bdf8",
-                background: "rgba(56, 189, 248, 0.08)",
-                border: "1px solid rgba(56, 189, 248, 0.2)",
+                color: "var(--accent)",
+                background: "var(--accent-soft)",
+                border: "1px solid var(--accent-border)",
                 borderRadius: "8px",
                 padding: "8px 14px",
                 cursor: "pointer",
@@ -175,7 +175,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div style={{ height: 1, background: "rgba(255,255,255,0.04)", marginBottom: "1.5rem" }} />
+        <div style={{ height: 1, background: "var(--border-color)", marginBottom: "1.5rem" }} />
 
         {/* Bottom row */}
         <div
@@ -187,10 +187,10 @@ export default function Footer() {
             flexWrap: "wrap",
           }}
         >
-          <p style={{ fontSize: "0.82rem", color: "#475569" }}>
+          <p style={{ fontSize: "0.82rem", color: "var(--text-secondary)" }}>
             © {new Date().getFullYear()} Pieter Tanoto. All rights reserved.
           </p>
-          <p style={{ fontSize: "0.82rem", color: "#475569" }}>
+          <p style={{ fontSize: "0.82rem", color: "var(--text-secondary)" }}>
             Built with Next.js & Tailwind 
           </p>
         </div>

@@ -138,7 +138,7 @@ export default function Navbar() {
                 fontWeight: activeSection === item.href.replace("#", "") ? 600 : 400,
                 color:
                   activeSection === item.href.replace("#", "")
-                    ? "#38bdf8"
+                    ? "var(--accent)"
                     : "var(--text-secondary)",
                 transition: "color 0.2s ease",
                 position: "relative",
@@ -184,8 +184,8 @@ export default function Navbar() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             style={{
-              background: "rgba(56, 189, 248, 0.1)",
-              border: "1px solid rgba(56, 189, 248, 0.2)",
+              background: "var(--accent-soft)",
+              border: "1px solid var(--accent-border)",
               borderRadius: "8px",
               width: 38,
               height: 38,
@@ -193,7 +193,7 @@ export default function Navbar() {
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
-              color: "#38bdf8",
+              color: "var(--accent)",
               fontSize: "1.1rem",
             }}
           >
@@ -206,8 +206,8 @@ export default function Navbar() {
             whileTap={{ scale: 0.9 }}
             className="show-mobile"
             style={{
-              background: "rgba(56, 189, 248, 0.1)",
-              border: "1px solid rgba(56, 189, 248, 0.2)",
+              background: "var(--accent-soft)",
+              border: "1px solid var(--accent-border)",
               borderRadius: "8px",
               width: 38,
               height: 38,
@@ -215,7 +215,7 @@ export default function Navbar() {
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
-              color: "#38bdf8",
+              color: "var(--accent)",
               fontSize: "1.2rem",
             }}
           >
@@ -257,11 +257,11 @@ export default function Navbar() {
                 onClick={() => scrollTo(item.href)}
                 style={{
                   background: activeSection === item.href.replace("#", "")
-                    ? "rgba(56, 189, 248, 0.1)"
+                    ? "var(--accent-soft)"
                     : "none",
                   border: "1px solid",
                   borderColor: activeSection === item.href.replace("#", "")
-                    ? "rgba(56, 189, 248, 0.3)"
+                    ? "var(--accent-border)"
                     : "transparent",
                   borderRadius: "10px",
                   padding: "14px 16px",
@@ -270,7 +270,7 @@ export default function Navbar() {
                   fontSize: "1rem",
                   fontWeight: 500,
                   color: activeSection === item.href.replace("#", "")
-                    ? "#38bdf8"
+                    ? "var(--accent)"
                     : "var(--text-secondary)",
                   transition: "all 0.2s ease",
                 }}

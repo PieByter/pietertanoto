@@ -56,12 +56,12 @@ export default function About() {
                   width: 44,
                   height: 44,
                   borderRadius: "12px",
-                  background: "rgba(56, 189, 248, 0.12)",
-                  border: "1px solid rgba(56, 189, 248, 0.25)",
+                  background: "var(--accent-soft)",
+                  border: "1px solid var(--accent-border)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#38bdf8",
+                  color: "var(--accent)",
                   fontSize: "1.3rem",
                 }}
               >
@@ -91,7 +91,7 @@ export default function About() {
             >
               <p>
                 I&apos;m a Computer Science graduate from{" "}
-                <span style={{ color: "#38bdf8", fontWeight: 600 }}>
+                <span style={{ color: "var(--accent)", fontWeight: 600 }}>
                   Universitas Sumatera Utara
                 </span>{" "}
                 with a passion for building software that is both reliable and
@@ -101,11 +101,11 @@ export default function About() {
               <p>
                 I&apos;ve had the opportunity to work on real-world projects —
                 from an{" "}
-                <span style={{ color: "#38bdf8", fontWeight: 600 }}>
+                <span style={{ color: "var(--accent)", fontWeight: 600 }}>
                   AI-powered chatbot at BPJS Ketenagakerjaan
                 </span>{" "}
                 to a{" "}
-                <span style={{ color: "#38bdf8", fontWeight: 600 }}>
+                <span style={{ color: "var(--accent)", fontWeight: 600 }}>
                   recommendation app at Bangkit Academy
                 </span>{" "}
                 where I graduated with Distinction (Top 10%).
@@ -134,7 +134,7 @@ export default function About() {
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
                 {interests.map((interest) => (
                   <span key={interest} className="about-tag">
-                    <HiSparkles style={{ color: "#38bdf8", flexShrink: 0 }} />
+                    <HiSparkles style={{ color: "var(--accent)", flexShrink: 0 }} />
                     {interest}
                   </span>
                 ))}
@@ -165,12 +165,12 @@ export default function About() {
                   width: 44,
                   height: 44,
                   borderRadius: "12px",
-                  background: "rgba(129, 140, 248, 0.12)",
-                  border: "1px solid rgba(129, 140, 248, 0.25)",
+                  background: "var(--accent-soft)",
+                  border: "1px solid var(--accent-border)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#818cf8",
+                  color: "var(--accent-2)",
                   fontSize: "1.3rem",
                 }}
               >

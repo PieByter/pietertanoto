@@ -85,9 +85,9 @@ export default function Projects() {
               onClick={() => handleTagChange(tag)}
               className="chip"
               style={{
-                borderColor: activeTag === tag ? "#38bdf8" : "var(--border-color)",
-                background: activeTag === tag ? "rgba(56, 189, 248, 0.15)" : "transparent",
-                color: activeTag === tag ? "#38bdf8" : "var(--text-muted)",
+                borderColor: activeTag === tag ? "var(--accent)" : "var(--border-color)",
+                background: activeTag === tag ? "var(--accent-soft)" : "transparent",
+                color: activeTag === tag ? "var(--accent)" : "var(--text-muted)",
                 fontWeight: activeTag === tag ? 600 : 400,
               }}
             >
@@ -285,7 +285,7 @@ export default function Projects() {
                           textDecoration: "none",
                           transition: "color 0.2s ease",
                         }}
-                        onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#38bdf8")}
+                        onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--accent)")}
                         onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--text-secondary)")}
                       >
                         <FaGithub /> Code
@@ -301,7 +301,7 @@ export default function Projects() {
                           alignItems: "center",
                           gap: "6px",
                           fontSize: "0.85rem",
-                          color: "#38bdf8",
+                          color: "var(--accent)",
                           textDecoration: "none",
                           fontWeight: 500,
                         }}
