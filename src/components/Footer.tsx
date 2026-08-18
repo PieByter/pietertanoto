@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {  
+import {
   FaGithub,
   FaLinkedin,
   FaInstagram,
   FaTiktok,
-  FaStackOverflow,
   FaXTwitter,
-  FaYoutube, } from "react-icons/fa6";
+  FaYoutube,
+} from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa6";
 import { HiMail } from "react-icons/hi";
 import { HiArrowUp } from "react-icons/hi2";
@@ -30,8 +30,6 @@ const socials = [
   { icon: FaInstagram, href: "https://instagram.com/pietertno", label: "Instagram"},
   { icon: FaXTwitter, href: "https://twitter.com/piers_tno", label: "Twitter"},
   { icon: FaTiktok, href: "https://tiktok.com/@pietertno", label: "TikTok"},
-  { icon: FaStackOverflow, href: "https://stackoverflow.com/users/12345678/pieter-tanoto", label: "Stack Overflow"},
-  // { icon: FaHackerrank, href: "https://hackerrank.com/pietertanoto", label: "HackerRank", color: "#00a651" },
   { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email" },
 ];
 

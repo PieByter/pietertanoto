@@ -19,14 +19,6 @@ export const certifications: Certification[] = [
   },
   {
     id: 2,
-    title: "Belajar Fundamental Pemrosesan Data",
-    issuer: "Dicoding Indonesia",
-    date: "March 2026",
-    credentialUrl: "https://www.dicoding.com/certificates/QLZ99RW27Z5D",
-    color: "#4ECDC4",
-  },
-  {
-    id: 3,
     title: "Membangun Aplikasi Gen AI dengan Microsoft Azure",
     issuer: "Dicoding Indonesia",
     date: "March 2026",
@@ -34,7 +26,7 @@ export const certifications: Certification[] = [
     color: "#5B8DEF",
   },
   {
-    id: 4,
+    id: 3,
     title: "Belajar Penerapan Data Science dengan Microsoft Fabric",
     issuer: "Dicoding Indonesia",
     date: "March 2026",
@@ -42,7 +34,7 @@ export const certifications: Certification[] = [
     color: "#F59E0B",
   },
   {
-    id: 5,
+    id: 4,
     title: "Excel with LinkedIn Recruiter Assessment",
     issuer: "LinkedIn",
     date: "March 2026",
@@ -50,7 +42,7 @@ export const certifications: Certification[] = [
     color: "#0A66C2",
   },
   {
-    id: 6,
+    id: 5,
     title: "Belajar Machine Learning untuk Pemula",
     issuer: "Dicoding Indonesia",
     date: "March 2026",

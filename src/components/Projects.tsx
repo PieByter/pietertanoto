@@ -5,8 +5,32 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import * as SiIcons from "react-icons/si";
 import { projects } from "@/data/projects";
+import SectionHeading from "./SectionHeading";
 
 const INITIAL_SHOW = 6;
+
+// Deterministic gradient pairs per project (based on id) for a rich thumbnail
+const THUMB_GRADIENTS = [
+  ["#0ea5e9", "#6366f1"],
+  ["#06b6d4", "#3b82f6"],
+  ["#8b5cf6", "#ec4899"],
+  ["#10b981", "#0ea5e9"],
+  ["#f59e0b", "#ef4444"],
+  ["#6366f1", "#06b6d4"],
+];
+
+function getThumbGradient(id: number) {
+  return THUMB_GRADIENTS[id % THUMB_GRADIENTS.length];
+}
+
+// Resolve a tag icon to a component (or emoji string)
+function resolveTagIcon(iconName: string) {
+  if (/^[\u{1F300}-\u{1F9FF}]|^[\u{2600}-\u{27BF}]/u.test(iconName)) {
+    return iconName;
+  }
+  const IconComponent = (SiIcons as Record<string, React.ComponentType>)[iconName];
+  return IconComponent || null;
+}
 
 // Get unique tag texts and create icon map
 const allTagObjects = Array.from(
@@ -37,42 +61,40 @@ export default function Projects() {
   return (
     <section id="projects" className="section">
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem" }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ marginBottom: "3rem" }}
-        >
-          <h2 className="section-title">
-            Featured <span className="gradient-text">Projects</span>
-          </h2>
-          <p className="section-subtitle">Things I&apos;ve built and shipped</p>
+        <SectionHeading
+          eyebrow="Portfolio"
+          title="Featured"
+          highlight="Projects"
+          subtitle="Things I've built and shipped"
+        />
 
-          {/* Filter Tags */}
-          <div className="projects-filter-row" style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "1.5rem" }}>
-            {allTags.slice(0, 10).map((tag) => (
-              <button
-                key={tag}
-                onClick={() => handleTagChange(tag)}
-                style={{
-                  padding: "6px 16px",
-                  borderRadius: "100px",
-                  border: "1px solid",
-                  borderColor: activeTag === tag ? "#38bdf8" : "var(--border-color)",
-                  background: activeTag === tag ? "rgba(56, 189, 248, 0.15)" : "transparent",
-                  color: activeTag === tag ? "#38bdf8" : "var(--text-muted)",
-                  fontSize: "0.85rem",
-                  fontWeight: activeTag === tag ? 600 : 400,
-                  cursor: "pointer",
-                  transition: "all 0.2s ease",
-                }}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-        </motion.div>
+        {/* Filter Tags */}
+        <div
+          className="projects-filter-row"
+          style={{
+            display: "flex",
+            gap: "0.5rem",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            marginBottom: "2.5rem",
+          }}
+        >
+          {allTags.slice(0, 10).map((tag) => (
+            <button
+              key={tag}
+              onClick={() => handleTagChange(tag)}
+              className="chip"
+              style={{
+                borderColor: activeTag === tag ? "#38bdf8" : "var(--border-color)",
+                background: activeTag === tag ? "rgba(56, 189, 248, 0.15)" : "transparent",
+                color: activeTag === tag ? "#38bdf8" : "var(--text-muted)",
+                fontWeight: activeTag === tag ? 600 : 400,
+              }}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
 
         {/* Grid */}
         <div
@@ -100,28 +122,68 @@ export default function Projects() {
                 {/* Thumbnail */}
                 <div
                   style={{
-                    height: "180px",
-                    background: "linear-gradient(135deg, #0a192f 0%, #1e3a5f 100%)",
+                    height: "190px",
                     position: "relative",
                     overflow: "hidden",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
+                    background: `linear-gradient(135deg, ${getThumbGradient(project.id)[0]}22 0%, ${getThumbGradient(project.id)[1]}22 100%)`,
                   }}
                 >
+                  {/* Decorative blobs */}
                   <div
                     style={{
-                      fontSize: "3rem",
-                      fontFamily: "var(--font-display)",
-                      fontWeight: 800,
-                      background: "linear-gradient(135deg, #38bdf8, #818cf8)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                      opacity: 0.7,
+                      position: "absolute",
+                      top: -40,
+                      right: -30,
+                      width: 180,
+                      height: 180,
+                      borderRadius: "50%",
+                      background: `radial-gradient(circle, ${getThumbGradient(project.id)[0]}40 0%, transparent 70%)`,
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: -50,
+                      left: -30,
+                      width: 200,
+                      height: 200,
+                      borderRadius: "50%",
+                      background: `radial-gradient(circle, ${getThumbGradient(project.id)[1]}35 0%, transparent 70%)`,
+                    }}
+                  />
+
+                  {/* Primary tag icon */}
+                  <div
+                    style={{
+                      position: "relative",
+                      zIndex: 1,
+                      width: 72,
+                      height: 72,
+                      borderRadius: "20px",
+                      background: "rgba(255,255,255,0.08)",
+                      border: "1px solid rgba(255,255,255,0.15)",
+                      backdropFilter: "blur(8px)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "2.2rem",
+                      color: "#fff",
+                      boxShadow: `0 8px 30px ${getThumbGradient(project.id)[0]}55`,
                     }}
                   >
-                    {project.title.charAt(0)}
+                    {(() => {
+                      const firstTag = project.tags[0];
+                      const icon = firstTag ? resolveTagIcon(firstTag.icon) : null;
+                      if (typeof icon === "string") return icon;
+                      if (icon) {
+                        const IconComp = icon;
+                        return <IconComp />;
+                      }
+                      return project.title.charAt(0);
+                    })()}
                   </div>
 
                   {project.featured && (
@@ -138,6 +200,7 @@ export default function Projects() {
                         borderRadius: "100px",
                         textTransform: "uppercase",
                         letterSpacing: "0.05em",
+                        zIndex: 2,
                       }}
                     >
                       Featured
@@ -185,42 +248,21 @@ export default function Projects() {
                   {/* Tags */}
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginBottom: "1.2rem" }}>
                     {project.tags.map((tag) => {
-                      // Get icon component from react-icons/si or use emoji fallback
-                      const getIcon = (iconName: string) => {
-                        // Check if it's an emoji (starts with emoji characters)
-                        if (/^[\u{1F300}-\u{1F9FF}]|^[\u{2600}-\u{27BF}]/u.test(iconName)) {
-                          return iconName;
-                        }
-                        // Try to get from SiIcons
-                        const IconComponent = (SiIcons as Record<string, React.ComponentType>)[iconName];
-                        return IconComponent ? (
-                          <div style={{ fontSize: "0.85rem", display: "flex", alignItems: "center" }}>
-                            <IconComponent />
-                          </div>
-                        ) : (
-                          "◆"
-                        );
-                      };
-
+                      const icon = resolveTagIcon(tag.icon);
                       return (
-                        <span
-                          key={tag.text}
-                          style={{
-                            fontSize: "0.75rem",
-                            padding: "4px 10px",
-                            borderRadius: "100px",
-                            background: "rgba(56, 189, 248, 0.08)",
-                            border: "1px solid rgba(56, 189, 248, 0.15)",
-                            color: "#38bdf8",
-                            fontWeight: 500,
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: "5px",
-                          }}
-                        >
-                          <span style={{ display: "inline-flex", alignItems: "center" }}>
-                            {getIcon(tag.icon)}
-                          </span>
+                        <span key={tag.text} className="chip" style={{ fontSize: "0.72rem", padding: "4px 10px" }}>
+                          {typeof icon === "string" ? (
+                            <span style={{ fontSize: "0.8rem" }}>{icon}</span>
+                          ) : icon ? (
+                            <span style={{ fontSize: "0.8rem", display: "inline-flex" }}>
+                              {(() => {
+                                const IconComp = icon;
+                                return <IconComp />;
+                              })()}
+                            </span>
+                          ) : (
+                            <span style={{ fontSize: "0.8rem" }}>◆</span>
+                          )}
                           {tag.text}
                         </span>
                       );

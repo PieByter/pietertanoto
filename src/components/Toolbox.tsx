@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
   SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs,
   SiPython, SiFlutter, SiDart, SiTailwindcss, SiPostgresql,
@@ -8,6 +7,7 @@ import {
   SiExpress, SiPandas, SiFigma, SiLinux,
 } from "react-icons/si";
 import { tools } from "@/data/toolbox";
+import SectionHeading from "./SectionHeading";
 
 const iconMap: Record<string, React.ComponentType<{ style?: React.CSSProperties }>> = {
   SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs,
@@ -47,18 +47,13 @@ function ToolItem({ tool }: { tool: (typeof tools)[0] }) {
 export default function Toolbox() {
   return (
     <section id="toolbox" className="section" style={{ overflow: "hidden" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem", textAlign: "center", marginBottom: "3rem" }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="section-title">
-            My <span className="gradient-text">Toolbox</span>
-          </h2>
-          <p className="section-subtitle">Technologies & tools I work with every day</p>
-        </motion.div>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem" }}>
+        <SectionHeading
+          eyebrow="Tech Stack"
+          title="My"
+          highlight="Toolbox"
+          subtitle="Technologies & tools I work with every day"
+        />
       </div>
 
       {/* Row 1 — scrolls left */}

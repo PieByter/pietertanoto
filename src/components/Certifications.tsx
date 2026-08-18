@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { HiBadgeCheck } from "react-icons/hi";
 import { certifications } from "@/data/certifications";
+import SectionHeading from "./SectionHeading";
 
 const INITIAL_SHOW = 6;
 
@@ -15,18 +16,12 @@ export default function Certifications() {
   return (
     <section id="certifications" className="section">
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem" }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ marginBottom: "3rem", textAlign: "center" }}
-        >
-          <h2 className="section-title">
-            Certifications <span className="gradient-text">& Skills</span>
-          </h2>
-          <p className="section-subtitle">Credentials that validate my expertise</p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="Credentials"
+          title="Certifications"
+          highlight="& Skills"
+          subtitle="Credentials that validate my expertise"
+        />
 
         <div
           style={{

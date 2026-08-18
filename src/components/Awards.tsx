@@ -6,6 +6,7 @@ import Image from "next/image";
 import { HiTrophy } from "react-icons/hi2";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { awards } from "@/data/awards";
+import SectionHeading from "./SectionHeading";
 
 const AUTO_SLIDE_MS = 10_000;
 
@@ -88,20 +89,12 @@ export default function Awards() {
     <section id="awards" className="section">
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem" }}>
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ marginBottom: "3rem", textAlign: "center" }}
-        >
-          <h2 className="section-title">
-            Awards <span className="gradient-text">& Achievements</span>
-          </h2>
-          <p className="section-subtitle">
-            Recognitions and honors I&apos;ve received
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="Recognition"
+          title="Awards"
+          highlight="& Achievements"
+          subtitle="Recognitions and honors I've received"
+        />
 
         {/* Carousel stage */}
         <div

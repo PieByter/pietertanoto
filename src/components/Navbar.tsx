@@ -3,9 +3,11 @@
 import { useState, useEffect, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiSun, HiMoon, HiMenu, HiX } from "react-icons/hi";
+import { HiArrowDownTray } from "react-icons/hi2";
 
 const navItems = [
   { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
   { label: "Toolbox", href: "#toolbox" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
@@ -57,13 +59,13 @@ export default function Navbar() {
       const sections = navItems.map((i) => i.href.replace("#", ""));
       for (const s of sections.reverse()) {
         const el = document.getElementById(s);
-        if (el && window.scrollY >= el.offsetTop - 100) {
+        if (el && window.scrollY >= el.offsetTop - 120) {
           setActiveSection(s);
           break;
         }
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -164,7 +166,19 @@ export default function Navbar() {
         </div>
 
         {/* Right side */}
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+          {/* Resume button (desktop) */}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary hide-mobile"
+            style={{ padding: "9px 18px", fontSize: "0.85rem" }}
+          >
+            <HiArrowDownTray style={{ fontSize: "0.9rem" }} />
+            Resume
+          </a>
+
           <motion.button
             onClick={toggleTheme}
             whileHover={{ scale: 1.1 }}
@@ -239,7 +253,7 @@ export default function Navbar() {
                 key={item.href}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.06 }}
+                transition={{ delay: i * 0.05 }}
                 onClick={() => scrollTo(item.href)}
                 style={{
                   background: activeSection === item.href.replace("#", "")
@@ -264,12 +278,27 @@ export default function Navbar() {
                 {item.label}
               </motion.button>
             ))}
+
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+              style={{
+                marginTop: "1rem",
+                justifyContent: "center",
+                width: "100%",
+              }}
+            >
+              <HiArrowDownTray />
+              Download Resume
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
           .hide-mobile { display: none !important; }
           .show-mobile { display: flex !important; }
         }

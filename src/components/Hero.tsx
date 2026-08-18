@@ -6,30 +6,25 @@ import {
   FaGithub,
   FaLinkedin,
   FaInstagram,
-  FaTiktok,
-  FaStackOverflow,
-  FaXTwitter,
   FaYoutube,
-  FaDiscord,
-  FaSpotify,
   FaWhatsapp,
 } from "react-icons/fa6";
 import { HiMail } from "react-icons/hi";
 import { HiArrowDown } from "react-icons/hi2";
 
 const socialLinks = [
-  { icon: FaWhatsapp, href: "https://wa.me/6287748215683", label: "WhatsApp", color: "#25D366" },
   { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", color: "#38bdf8" },
   { icon: FaLinkedin, href: "https://linkedin.com/in/pieter-tanoto", label: "LinkedIn", color: "#0A66C2" },
+  { icon: FaWhatsapp, href: "https://wa.me/6287748215683", label: "WhatsApp", color: "#25D366" },
   { icon: FaYoutube, href: "https://youtube.com/@piebyter", label: "YouTube", color: "#FF0000" },
   { icon: FaInstagram, href: "https://instagram.com/pietertno", label: "Instagram", color: "#E1306C" },
-  { icon: FaXTwitter, href: "https://twitter.com/piers_tno", label: "Twitter", color: "#38bdf8" },
-  { icon: FaTiktok, href: "https://tiktok.com/@pietertno", label: "TikTok", color: "#ff0050" },
-  { icon: FaStackOverflow, href: "https://stackoverflow.com/users/12345678/pieter-tanoto", label: "Stack Overflow", color: "#f48024" },
-  // { icon: FaHackerrank, href: "https://hackerrank.com/pietertanoto", label: "HackerRank", color: "#00a651" },
-    { icon: FaDiscord, href: "https://discord.gg/your-server", label: "Discord", color: "#5865F2" },
-  { icon: FaSpotify, href: "https://open.spotify.com/user/your-spotify-user", label: "Spotify", color: "#1DB954" },
   { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email", color: "#38bdf8" },
+];
+
+const heroStats = [
+  { value: "2+", label: "Years Experience" },
+  { value: "9+", label: "Projects" },
+  { value: "24+", label: "Certifications" },
 ];
 
 const fadeUp: Variants = {
@@ -182,7 +177,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             className="hero-cta-row"
-            style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginBottom: "2.5rem" }}
+            style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginBottom: "2rem" }}
           >
             <a
               href="#projects"
@@ -198,6 +193,27 @@ export default function Hero() {
             <a href="/resume.pdf" className="btn-outline" target="_blank" rel="noopener noreferrer">
               Download CV
             </a>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            custom={4.5}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            style={{
+              display: "flex",
+              gap: "0.75rem",
+              flexWrap: "wrap",
+              marginBottom: "2rem",
+            }}
+          >
+            {heroStats.map((stat) => (
+              <div key={stat.label} className="stat-card" style={{ padding: "0.8rem 1.2rem" }}>
+                <div className="stat-value" style={{ fontSize: "1.4rem" }}>{stat.value}</div>
+                <div className="stat-label" style={{ fontSize: "0.7rem" }}>{stat.label}</div>
+              </div>
+            ))}
           </motion.div>
 
           {/* Social Icons */}

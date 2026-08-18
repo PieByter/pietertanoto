@@ -2,23 +2,18 @@
 
 import { motion } from "framer-motion";
 import { experiences } from "@/data/experience";
+import SectionHeading from "./SectionHeading";
 
 export default function Experience() {
   return (
     <section id="experience" className="section">
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem" }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ marginBottom: "4rem", textAlign: "center" }}
-        >
-          <h2 className="section-title">
-            Work <span className="gradient-text">Experience</span>
-          </h2>
-          <p className="section-subtitle">My professional journey so far</p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="Career"
+          title="Work"
+          highlight="Experience"
+          subtitle="My professional journey so far"
+        />
 
         {/* Timeline */}
         <div style={{ position: "relative" }} className="timeline-wrapper">

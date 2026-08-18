@@ -1,25 +1,25 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import {
   FaGithub,
   FaLinkedin,
   FaInstagram,
   FaYoutube,
-  FaWhatsapp
+  FaWhatsapp,
 } from "react-icons/fa6";
-import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
+import { HiMail, HiPhone, HiLocationMarker, HiPaperAirplane } from "react-icons/hi";
 import { email, phone } from "@/data/socials";
+import SectionHeading from "./SectionHeading";
 
 const socialLinks = [
-    {icon : FaWhatsapp, href: "https://wa.me/6287748215683", label: "WhatsApp", iconColor: "#25D366", hoverColor: "#25D366" },
+  { icon: FaWhatsapp, href: "https://wa.me/6287748215683", label: "WhatsApp", iconColor: "#25D366", hoverColor: "#25D366" },
   { icon: HiMail, href: "mailto:pietertanoto01@email.com", label: "Email", iconColor: "#38bdf8", hoverColor: "#38bdf8" },
   { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", iconColor: "var(--text-primary)", hoverColor: "#38bdf8" },
   { icon: FaLinkedin, href: "https://linkedin.com/in/pieter-tanoto", label: "LinkedIn", iconColor: "#0A66C2", hoverColor: "#0A66C2" },
   { icon: FaYoutube, href: "https://youtube.com/@piebyter", label: "YouTube", iconColor: "#FF0000", hoverColor: "#FF0000" },
   { icon: FaInstagram, href: "https://instagram.com/pietertno", label: "Instagram", iconColor: "#E1306C", hoverColor: "#E1306C" },
-  // { icon: FaStackOverflow, href: "https://stackoverflow.com/users/12345678/pieter-tanoto", label: "Stack Overflow", iconColor: "#f48024", hoverColor: "#f48024" },
-
 ];
 
 const contactItems = [
@@ -47,23 +47,29 @@ const contactItems = [
 ];
 
 export default function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sent, setSent] = useState(false);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
+    );
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    setSent(true);
+    setTimeout(() => setSent(false), 5000);
+  };
+
   return (
     <section id="contact" className="section">
-      <div style={{ maxWidth: "900px", margin: "0 auto", padding: "0 2rem" }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ textAlign: "center", marginBottom: "3.5rem" }}
-        >
-          <h2 className="section-title">
-            Get In <span className="gradient-text">Touch</span>
-          </h2>
-          <p className="section-subtitle">
-            Open to new opportunities, collaborations, and interesting projects
-          </p>
-        </motion.div>
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 2rem" }}>
+        <SectionHeading
+          eyebrow="Contact"
+          title="Get In"
+          highlight="Touch"
+          subtitle="Open to new opportunities, collaborations, and interesting projects"
+        />
 
         <div
           style={{
@@ -157,63 +163,121 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Right: Social Links */}
+          {/* Right: Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+            className="card"
+            style={{ padding: "2rem" }}
           >
-            <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", marginBottom: "0.5rem" }}>
-              You can also find me on these platforms:
+            <h3
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "1.3rem",
+                fontWeight: 700,
+                marginBottom: "0.4rem",
+                color: "var(--text-primary)",
+              }}
+            >
+              Send me a message
+            </h3>
+            <p
+              style={{
+                color: "var(--text-secondary)",
+                fontSize: "0.9rem",
+                marginBottom: "1.5rem",
+              }}
+            >
+              Fill out the form and I&apos;ll get back to you as soon as possible.
             </p>
 
-            {socialLinks.map((social, i) => (
-              <motion.a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07 }}
-                whileHover={{ x: 6 }}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1rem",
-                  padding: "14px 18px",
-                  borderRadius: "12px",
-                  background: "var(--bg-card)",
-                  border: "1px solid var(--border-color)",
-                  textDecoration: "none",
-                  transition: "all 0.2s ease",
-                  color: "var(--text-primary)",
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = social.hoverColor + "66";
-                  el.style.background = social.hoverColor + "0d";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "var(--border-color)";
-                  el.style.background = "var(--bg-card)";
-                }}
+            <form
+              onSubmit={handleSubmit}
+              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+            >
+              <div
+                style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}
+                className="form-row"
               >
-                <social.icon
-                  style={{
-                    fontSize: "1.35rem",
-                    color: social.iconColor,
-                    flexShrink: 0,
-                  }}
+                <input
+                  type="text"
+                  required
+                  placeholder="Your name"
+                  className="form-field"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
                 />
-                <span style={{ fontWeight: 500, fontSize: "0.95rem" }}>{social.label}</span>
-                <span style={{ marginLeft: "auto", color: "var(--text-muted)", fontSize: "0.85rem" }}>→</span>
-              </motion.a>
-            ))}
+                <input
+                  type="email"
+                  required
+                  placeholder="Your email"
+                  className="form-field"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                />
+              </div>
+              <textarea
+                required
+                rows={5}
+                placeholder="Tell me about your project or opportunity..."
+                className="form-field"
+                style={{ resize: "vertical", minHeight: "120px" }}
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+              />
+              <button
+                type="submit"
+                className="btn-primary"
+                style={{ justifyContent: "center", width: "100%" }}
+              >
+                <HiPaperAirplane />
+                {sent ? "Opening your email app..." : "Send Message"}
+              </button>
+            </form>
+
+            {/* Social links compact */}
+            <div
+              style={{
+                marginTop: "1.5rem",
+                paddingTop: "1.25rem",
+                borderTop: "1px solid var(--border-color)",
+              }}
+            >
+              <p style={{ color: "var(--text-muted)", fontSize: "0.82rem", marginBottom: "0.75rem" }}>
+                Or find me on:
+              </p>
+              <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+                {socialLinks.map((social) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    whileHover={{ scale: 1.12, y: -2 }}
+                    whileTap={{ scale: 0.9 }}
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: "10px",
+                      background: "var(--icon-circle-bg)",
+                      border: "1px solid var(--icon-circle-border)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: social.iconColor,
+                      fontSize: "1.05rem",
+                      textDecoration: "none",
+                      transition: "all 0.2s ease",
+                    }}
+                  >
+                    <social.icon />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -221,6 +285,9 @@ export default function Contact() {
       <style>{`
         @media (max-width: 768px) {
           .contact-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .form-row {
             grid-template-columns: 1fr !important;
           }
         }
