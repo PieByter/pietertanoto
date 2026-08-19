@@ -3,6 +3,8 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import ScrollProgress from "@/components/ScrollProgress";
 import BackToTop from "@/components/BackToTop";
+import CustomCursor from "@/components/CustomCursor";
+import CommandPalette from "@/components/CommandPalette";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -55,6 +57,8 @@ export default function RootLayout({
         <ScrollProgress />
         {children}
         <BackToTop />
+        <CustomCursor />
+        <CommandPalette />
       </body>
     </html>
   );

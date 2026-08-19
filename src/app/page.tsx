@@ -8,10 +8,12 @@ import Certifications from "@/components/Certifications";
 import Awards from "@/components/Awards";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import AuroraBackground from "@/components/AuroraBackground";
 
 export default function Home() {
   return (
     <main>
+      <AuroraBackground />
       <Navbar />
       <Hero />
       <About />

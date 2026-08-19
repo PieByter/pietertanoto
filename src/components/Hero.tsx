@@ -11,6 +11,9 @@ import {
 } from "react-icons/fa6";
 import { HiMail } from "react-icons/hi";
 import { HiArrowDown } from "react-icons/hi2";
+import TypeWriter from "./TypeWriter";
+import CountUp from "./CountUp";
+import TechMarquee from "./TechMarquee";
 
 const socialLinks = [
   { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", color: "var(--accent)" },
@@ -146,9 +149,10 @@ export default function Hero() {
               fontWeight: 600,
               marginBottom: "1.2rem",
               fontFamily: "var(--font-display)",
+              minHeight: "1.6em",
             }}
           >
-            Backend Developer
+            <TypeWriter />
           </motion.p>
 
           <motion.p
@@ -210,7 +214,9 @@ export default function Hero() {
           >
             {heroStats.map((stat) => (
               <div key={stat.label} className="stat-card" style={{ padding: "0.8rem 1.2rem" }}>
-                <div className="stat-value" style={{ fontSize: "1.4rem" }}>{stat.value}</div>
+                <div className="stat-value" style={{ fontSize: "1.4rem" }}>
+                  <CountUp text={stat.value} />
+                </div>
                 <div className="stat-label" style={{ fontSize: "0.7rem" }}>{stat.label}</div>
               </div>
             ))}
@@ -391,7 +397,7 @@ export default function Hero() {
         transition={{ delay: 1.5 }}
         style={{
           position: "absolute",
-          bottom: "2rem",
+          bottom: "4.5rem",
           left: "50%",
           transform: "translateX(-50%)",
           display: "flex",
@@ -411,6 +417,9 @@ export default function Hero() {
           <HiArrowDown />
         </motion.div>
       </motion.div>
+
+      {/* Tech marquee strip */}
+      <TechMarquee />
 
       <style>{`
         @keyframes pulse {

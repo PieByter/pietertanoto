@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import { HiAcademicCap, HiSparkles, HiUser } from "react-icons/hi2";
 import { education, stats, interests } from "@/data/about";
 import SectionHeading from "./SectionHeading";
+import CountUp from "./CountUp";
+import Terminal from "./Terminal";
+import Currently from "./Currently";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -288,18 +291,38 @@ export default function About() {
             >
               {stats.map((stat) => (
                 <div key={stat.label} className="stat-card">
-                  <div className="stat-value">{stat.value}</div>
+                  <div className="stat-value">
+                    <CountUp text={stat.value} />
+                  </div>
                   <div className="stat-label">{stat.label}</div>
                 </div>
               ))}
             </div>
           </motion.div>
         </div>
+
+        {/* Currently + Interactive Terminal */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1.4fr",
+            gap: "2rem",
+            marginTop: "2rem",
+            alignItems: "stretch",
+          }}
+          className="about-extra-grid"
+        >
+          <Currently />
+          <Terminal />
+        </div>
       </div>
 
       <style>{`
         @media (max-width: 900px) {
           .about-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .about-extra-grid {
             grid-template-columns: 1fr !important;
           }
         }

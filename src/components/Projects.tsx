@@ -58,6 +58,13 @@ export default function Projects() {
     setShowAll(false);
   };
 
+  // Spotlight follows the cursor inside each card
+  const handleSpotlight = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--spot-x", `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty("--spot-y", `${e.clientY - rect.top}px`);
+  };
+
   return (
     <section id="projects" className="section">
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem" }}>
@@ -117,13 +124,18 @@ export default function Projects() {
                   ease: "easeOut",
                 }}
                 className="card"
-                style={{ overflow: "hidden" }}
+                style={{ overflow: "hidden", position: "relative" }}
+                onMouseMove={handleSpotlight}
               >
+                {/* Spotlight glow that follows the cursor */}
+                <div className="card-spotlight" />
+
                 {/* Thumbnail */}
                 <div
                   style={{
                     height: "190px",
                     position: "relative",
+                    zIndex: 1,
                     overflow: "hidden",
                     display: "flex",
                     alignItems: "center",
@@ -221,7 +233,7 @@ export default function Projects() {
                 </div>
 
                 {/* Content */}
-                <div style={{ padding: "1.5rem" }}>
+                <div style={{ padding: "1.5rem", position: "relative", zIndex: 1 }}>
                   <h3
                     style={{
                       fontFamily: "var(--font-display)",
