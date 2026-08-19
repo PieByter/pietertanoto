@@ -11,6 +11,35 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     id: 1,
+    company: "Murni Teguh (Medan Head Office)",
+    role: "Backend Developer",
+    duration: "May 2026 - Present",
+    type: "Full-time",
+    responsibilities: [
+      "Develop and maintain backend services using Java (Spring Boot) as the primary stack.",
+      "Work as a full-stack developer, building frontend features with SvelteKit.",
+      "Manage code and collaboration workflows using Jira and Bitbucket.",
+      "Query and manage databases with DBeaver.",
+      "Test and document APIs using Postman and Swagger.",
+    ],
+    color: "#10b981",
+  },
+  {
+    id: 2,
+    company: "Sumatra Tobacco Trading Company (STTC)",
+    role: "Web Developer",
+    duration: "Jul 2025 - Dec 2025",
+    type: "Full-time",
+    responsibilities: [
+      "Developed and maintained web applications using Laravel (PHP) as the primary backend framework.",
+      "Built interactive frontend features using TypeScript.",
+      "Designed and managed relational databases and wrote efficient queries.",
+      "Collaborated with the team using version control and agile workflows.",
+    ],
+    color: "#f59e0b",
+  },
+  {
+    id: 3,
     company: "BPJS Ketenagakerjaan",
     role: "IT Support Internship (AI Developer)",
     duration: "Sep 2024 - Dec 2024",
@@ -25,7 +54,7 @@ export const experiences: Experience[] = [
     color: "#38bdf8",
   },
   {
-    id: 2,
+    id: 4,
     company: "Bangkit Academy 2024 Batch 1",
     role: "Android Mobile Developer (Capstone: Auxilium)",
     duration: "Jan 2024 — Jun 2024",

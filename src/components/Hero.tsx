@@ -148,7 +148,7 @@ export default function Hero() {
               fontFamily: "var(--font-display)",
             }}
           >
-            Mobile Developer | System Analyst | QA Engineer
+            Backend Developer
           </motion.p>
 
           <motion.p
