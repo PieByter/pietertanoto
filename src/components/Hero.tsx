@@ -328,7 +328,7 @@ export default function Hero() {
               onPaste={blockImageActions}
             >
               <Image
-                src="/images/profile.png"
+                src="/images/ai_profile.jpg"
                 alt="Pieter Tanoto"
                 fill
                 sizes="(max-width: 768px) 220px, 300px"

@@ -72,6 +72,7 @@
   /* Icon circle bg for dark mode */
   --icon-circle-bg: rgba(255, 255, 255, 0.06);
   --icon-circle-border: rgba(255, 255, 255, 0.08);
+  --marquee-bg: rgba(6, 15, 30, 0.4);
 }
 
 .light {
@@ -120,6 +121,7 @@
   /* Icon circle bg for light mode — visible against light */
   --icon-circle-bg: rgba(2, 132, 199, 0.08);
   --icon-circle-border: rgba(2, 132, 199, 0.2);
+  --marquee-bg: rgba(226, 232, 240, 0.58);
 }
 
 * {
@@ -781,7 +783,7 @@ main {
   overflow: hidden;
   padding: 14px 0;
   border-top: 1px solid var(--border-color);
-  background: rgba(6, 15, 30, 0.4);
+  background: var(--marquee-bg);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 2;
