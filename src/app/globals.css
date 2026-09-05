@@ -756,6 +756,85 @@ main {
   will-change: transform;
 }
 
+/* ── Boot screen (terminal preloader) ───────────────────────────────── */
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-base);
+  transition: opacity 0.6s ease;
+}
+
+.boot-screen-leave {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.boot-window {
+  width: min(560px, 90vw);
+  background: #0a0f1e;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  font-family:
+    "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo,
+    monospace;
+}
+
+.boot-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.boot-title {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.boot-body {
+  padding: 18px 16px;
+  min-height: 220px;
+  font-size: 0.85rem;
+  line-height: 1.9;
+}
+
+.boot-cmd {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.boot-out {
+  color: var(--text-secondary);
+}
+
+.boot-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.1em;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  animation: boot-blink 1s steps(2, start) infinite;
+}
+
+@keyframes boot-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 /* ── Typewriter cursor ──────────────────────────────────────────────── */
 .typewriter-cursor {
   display: inline-block;

@@ -7,6 +7,7 @@ const STACK = [
   "Spring Boot",
   "SvelteKit",
   "TypeScript",
+  "PostgreSQL",
   "Jira",
   "Bitbucket",
   "DBeaver",

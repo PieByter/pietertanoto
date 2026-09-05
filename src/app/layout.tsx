@@ -5,6 +5,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import BackToTop from "@/components/BackToTop";
 import CustomCursor from "@/components/CustomCursor";
 import CommandPalette from "@/components/CommandPalette";
+import BootScreen from "@/components/BootScreen";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -55,6 +56,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable}`}>
         <ScrollProgress />
+        <BootScreen />
         {children}
         <BackToTop />
         <CustomCursor />

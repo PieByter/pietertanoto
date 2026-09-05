@@ -23,8 +23,8 @@ export default function About() {
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem" }}>
         <SectionHeading
           eyebrow="About Me"
-          title="Who I"
-          highlight="Am"
+          title="WHO I"
+          highlight="AM"
           subtitle="A quick look at my background, education, and what drives me"
         />
 

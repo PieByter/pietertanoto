@@ -19,7 +19,7 @@ export const education: Education[] = [
         school: "Universitas Sumatera Utara",
         degree: "Bachelor of Computer Science (S.Kom)",
         field: "Computer Science / Informatics",
-        duration: "2020 — 2024",
+        duration: "2021 — 2025",
         description:
             "Graduated with a focus on software engineering, data structures, and system design. Built a strong foundation in algorithms, databases, and full-stack development through coursework and hands-on projects.",
         color: "#38bdf8",

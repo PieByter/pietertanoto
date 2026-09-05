@@ -39,11 +39,28 @@ const COMMANDS: Record<string, string[]> = {
   whoami: ["pieter@tanoto:~$ whoami", "Pieter Tanoto — Backend Developer 🚀"],
 };
 
+const BOOT_LINES: Array<{ type: "cmd" | "out"; text: string }> = [
+  { type: "cmd", text: "$ whoami" },
+  { type: "out", text: "Pieter Tanoto — Backend Developer 🚀" },
+  { type: "cmd", text: "$ cat about.txt" },
+  { type: "out", text: "CS graduate @ Universitas Sumatera Utara." },
+  { type: "out", text: "Building reliable APIs & scalable systems." },
+  { type: "cmd", text: "$ status" },
+  { type: "out", text: "● Backend Developer @ Murni Teguh" },
+  { type: "out", text: "● Open to opportunities" },
+  { type: "cmd", text: "$ help" },
+  {
+    type: "out",
+    text: "Type a command to explore → try: skills, experience, contact",
+  },
+];
+
 export default function Terminal() {
   const [history, setHistory] = useState<string[]>([
     "Welcome to Pieter's terminal! Type 'help' to get started.",
   ]);
   const [input, setInput] = useState("");
+  const [bootCount, setBootCount] = useState(0);
   const bodyRef = useRef<HTMLDivElement>(null);
 
   const run = (raw: string) => {
@@ -62,7 +79,14 @@ export default function Terminal() {
 
   useEffect(() => {
     bodyRef.current?.scrollTo({ top: bodyRef.current.scrollHeight });
-  }, [history]);
+  }, [history, bootCount]);
+
+  // Auto-type the welcome narrative on mount
+  useEffect(() => {
+    if (bootCount >= BOOT_LINES.length) return;
+    const t = setTimeout(() => setBootCount((c) => c + 1), 320);
+    return () => clearTimeout(t);
+  }, [bootCount]);
 
   return (
     <div className="terminal">
@@ -73,6 +97,14 @@ export default function Terminal() {
         <span className="terminal-title">pieter@tanoto: ~</span>
       </div>
       <div className="terminal-body" ref={bodyRef}>
+        {BOOT_LINES.slice(0, bootCount).map((line, i) => (
+          <div
+            key={`boot-${i}`}
+            className={line.type === "cmd" ? "terminal-cmd" : "terminal-out"}
+          >
+            {line.text}
+          </div>
+        ))}
         {history.map((line, i) => (
           <div
             key={i}
