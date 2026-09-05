@@ -160,6 +160,21 @@ export default function Contact() {
               >
                 <FaWhatsapp /> Reach Me Here
               </a>
+
+              {/* Google Maps — Medan with glowing pin */}
+              <div className="contact-map">
+                <iframe
+                  title="Medan, North Sumatra, Indonesia"
+                  src="https://www.google.com/maps?center=3.5952,98.6722&z=13&output=embed"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+                <div className="contact-map-pin" aria-hidden>
+                  <span className="contact-map-pin-dot" />
+                </div>
+                <div className="contact-map-label">📍 Medan, North Sumatra, Indonesia</div>
+              </div>
             </div>
           </motion.div>
 

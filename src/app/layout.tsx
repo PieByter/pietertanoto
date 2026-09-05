@@ -6,6 +6,7 @@ import BackToTop from "@/components/BackToTop";
 import CustomCursor from "@/components/CustomCursor";
 import CommandPalette from "@/components/CommandPalette";
 import BootScreen from "@/components/BootScreen";
+import ChatWidget from "@/components/ChatWidget";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default function RootLayout({
         <BackToTop />
         <CustomCursor />
         <CommandPalette />
+        <ChatWidget />
       </body>
     </html>
   );
