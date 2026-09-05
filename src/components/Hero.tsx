@@ -13,7 +13,6 @@ import { HiMail } from "react-icons/hi";
 import { HiArrowDown } from "react-icons/hi2";
 import TypeWriter from "./TypeWriter";
 import CountUp from "./CountUp";
-import TechMarquee from "./TechMarquee";
 
 const socialLinks = [
   { icon: FaGithub, href: "https://github.com/Piebyter", label: "GitHub", color: "var(--accent)" },
@@ -417,9 +416,6 @@ export default function Hero() {
           <HiArrowDown />
         </motion.div>
       </motion.div>
-
-      {/* Tech marquee strip */}
-      <TechMarquee />
 
       <style>{`
         @keyframes pulse {
