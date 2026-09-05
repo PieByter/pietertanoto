@@ -17,48 +17,34 @@ export default function BootScreen() {
   const [leaving, setLeaving] = useState(false);
   const [done, setDone] = useState(false);
 
+  // Selalu tampil tiap halaman dimuat; hanya dilewati jika prefers-reduced-motion.
   useEffect(() => {
-    let skip = false;
-    try {
-      if (sessionStorage.getItem("pt-booted")) skip = true;
-    } catch {
-      /* ignore */
-    }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      skip = true;
-    }
-
-    if (skip) {
       const t = setTimeout(() => setDone(true), 0);
       return () => clearTimeout(t);
     }
   }, []);
 
-  // Reveal boot lines one by one
+  const skip = () => setDone(true);
+
+  // Reveal baris satu per satu (timer JS — baris selalu tampil di semua kondisi)
   useEffect(() => {
     if (count >= BOOT_LINES.length) return;
-    const t = setTimeout(() => setCount((c) => c + 1), 240);
+    const t = setTimeout(() => setCount((c) => c + 1), 170);
     return () => clearTimeout(t);
   }, [count]);
 
-  // Start fade-out once the boot sequence finishes
+  // Fade-out setelah semua baris tampil
   useEffect(() => {
     if (count < BOOT_LINES.length) return;
-    const t = setTimeout(() => setLeaving(true), 500);
+    const t = setTimeout(() => setLeaving(true), 400);
     return () => clearTimeout(t);
   }, [count]);
 
-  // Unmount after the fade completes
+  // Unmount setelah fade selesai
   useEffect(() => {
     if (!leaving) return;
-    const t = setTimeout(() => {
-      setDone(true);
-      try {
-        sessionStorage.setItem("pt-booted", "1");
-      } catch {
-        /* ignore */
-      }
-    }, 700);
+    const t = setTimeout(() => setDone(true), 500);
     return () => clearTimeout(t);
   }, [leaving]);
 
@@ -67,7 +53,7 @@ export default function BootScreen() {
   return (
     <div
       className={`boot-screen ${leaving ? "boot-screen-leave" : ""}`}
-      aria-hidden
+      onClick={skip}
     >
       <div className="boot-window">
         <div className="boot-header">
@@ -88,6 +74,7 @@ export default function BootScreen() {
           {count < BOOT_LINES.length && <span className="boot-cursor" />}
         </div>
       </div>
+      <span className="boot-skip-hint">klik di mana saja untuk melewati</span>
     </div>
   );
 }

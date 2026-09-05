@@ -13,7 +13,7 @@ export default function CustomCursor() {
     if (window.matchMedia("(pointer: coarse)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    setEnabled(true);
+    const t = setTimeout(() => setEnabled(true), 0);
     document.body.classList.add("custom-cursor-active");
 
     let mouseX = -100;
@@ -53,6 +53,7 @@ export default function CustomCursor() {
     raf = requestAnimationFrame(loop);
 
     return () => {
+      clearTimeout(t);
       document.body.classList.remove("custom-cursor-active");
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseover", onOver);

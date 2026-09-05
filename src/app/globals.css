@@ -1187,6 +1187,17 @@ main {
   animation: boot-blink 1s steps(2, start) infinite;
 }
 
+.boot-skip-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+  font-family: var(--font-sans);
+}
+
 @keyframes boot-blink {
   0%,
   100% {

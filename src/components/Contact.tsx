@@ -165,7 +165,7 @@ export default function Contact() {
               <div className="contact-map">
                 <iframe
                   title="Medan, North Sumatra, Indonesia"
-                  src="https://www.google.com/maps?center=3.5952,98.6722&z=13&output=embed"
+                  src="https://www.google.com/maps?q=3.5945355506318872,98.67353330733351&z=13&output=embed"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   allowFullScreen
