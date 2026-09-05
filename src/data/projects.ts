@@ -7,6 +7,7 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   featured?: boolean;
+  features?: string[];
 }
 
 export const projects: Project[] = [
@@ -15,6 +16,12 @@ export const projects: Project[] = [
     title: "AI Powered POS System",
     description:
       "A full-featured Point of Sale system with real-time inventory management, sales analytics, and AI-driven product recommendations built with Next.js and Supabase.",
+    features: [
+      "Real-time inventory management",
+      "Sales analytics dashboard",
+      "AI-driven product recommendations",
+      "Built with Next.js & Supabase",
+    ],
     image: "/images/project-pos.jpg",
     tags: [
       { icon: "SiNextdotjs", text: "Next.js" },
@@ -31,6 +38,12 @@ export const projects: Project[] = [
     title: "Portfolio Website",
     description:
       "This very website — a modern, performant portfolio built with Next.js, Tailwind CSS, and Framer Motion with dark/light mode and smooth animations.",
+    features: [
+      "Dark / light mode",
+      "Interactive terminal & chat widget",
+      "Smooth Framer Motion animations",
+      "SEO-optimized with Open Graph",
+    ],
     image: "/images/project-portfolio.jpg",
     tags: [
       { icon: "SiNextdotjs", text: "Next.js" },
@@ -47,6 +60,12 @@ export const projects: Project[] = [
     title: "FocusPodo — Productivity App",
     description:
       "A Flutter productivity app integrating a Todo list, Habit Tracker, and Pomodoro timer with smooth animations and state management.",
+    features: [
+      "Todo list management",
+      "Habit tracker",
+      "Pomodoro timer",
+      "Smooth animations & state management",
+    ],
     image: "/images/project-focus.jpg",
     tags: [
       { icon: "SiFlutter", text: "Flutter" },
@@ -63,6 +82,12 @@ export const projects: Project[] = [
     title: "LaporBang App",
     description:
       "A mobile pothole reporting app for Medan City that uses YOLOv11 and UNet for road-damage detection, with an Express.js backend and seamless Android integration.",
+    features: [
+      "Pothole detection with YOLOv11 & UNet",
+      "Android app integration",
+      "Express.js backend",
+      "Road-damage image classification",
+    ],
     image: "/images/project-etl.jpg",
     tags: [
       { icon: "SiAndroid", text: "Android" },
@@ -81,6 +106,12 @@ export const projects: Project[] = [
     title: "Auxilium Recommendation App",
     description:
       "A recommendation mobile app developed in Bangkit Academy, combining an ML model for personalized suggestions with a seamless cloud backend and smooth Android integration.",
+    features: [
+      "ML-based personalized recommendations",
+      "Cloud backend integration",
+      "Android app",
+      "Built during Bangkit Academy",
+    ],
     image: "/images/project-etl.jpg",
     tags: [
       { icon: "SiAndroid", text: "Android" },
@@ -95,6 +126,12 @@ export const projects: Project[] = [
     title: "Techy Trashker — Waste Management App",
     description:
       "A waste management app designed to help users locate the nearest waste bank for proper waste disposal and environmental awareness. Built with Figma prototyping.",
+    features: [
+      "Find nearest waste bank",
+      "Figma interactive prototype",
+      "Sustainability-focused UX",
+      "Location services",
+    ],
     image: "/images/project-n8n.jpg",
     tags: [
       { icon: "SiFigma", text: "Figma" },
@@ -109,6 +146,12 @@ export const projects: Project[] = [
     title: "RESTful API Server",
     description:
       "A refactored Express.js REST API with modular architecture — separate models, routes, middlewares, and config — deployed seamlessly on Vercel.",
+    features: [
+      "Modular architecture (models, routes, middlewares)",
+      "MongoDB integration",
+      "Deployed on Vercel",
+      "Clean, maintainable structure",
+    ],
     image: "/images/project-api.jpg",
     tags: [
       { icon: "SiNodedotjs", text: "Node.js" },
@@ -123,6 +166,12 @@ export const projects: Project[] = [
     title: "n8n Workflow Automation",
     description:
       "Custom automation workflows built with n8n to streamline data processing, notifications, and integrations across multiple platforms.",
+    features: [
+      "Custom automation workflows",
+      "Data processing & notifications",
+      "Multi-platform integrations",
+      "Docker-based",
+    ],
     image: "/images/project-n8n.jpg",
     tags: [
       { icon: "Sinn8n", text: "n8n" },
@@ -137,6 +186,12 @@ export const projects: Project[] = [
     title: "Fashion ETL Pipeline",
     description:
       "A modular ETL pipeline to scrape, transform, and load fashion product data from e-commerce sites into CSV and Google Sheets repositories with robust error handling.",
+    features: [
+      "Web scraping fashion data",
+      "Pandas transformation",
+      "Export to CSV & Google Sheets",
+      "Robust error handling",
+    ],
     image: "/images/project-etl.jpg",
     tags: [
       { icon: "🐍", text: "Python" },

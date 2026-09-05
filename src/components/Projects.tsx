@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { HiInformationCircle } from "react-icons/hi2";
 import * as SiIcons from "react-icons/si";
-import { projects } from "@/data/projects";
+import { projects, type Project } from "@/data/projects";
 import SectionHeading from "./SectionHeading";
 
 const INITIAL_SHOW = 6;
@@ -45,6 +46,21 @@ const allTags = ["All", ...allTagObjects.map((t) => t.text)];
 export default function Projects() {
   const [activeTag, setActiveTag] = useState("All");
   const [showAll, setShowAll] = useState(false);
+  const [selected, setSelected] = useState<Project | null>(null);
+
+  // Close modal on Escape + sembunyikan scrollbar halaman saat modal terbuka
+  useEffect(() => {
+    if (!selected) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelected(null);
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [selected]);
 
   const filtered = activeTag === "All"
     ? projects
@@ -124,8 +140,9 @@ export default function Projects() {
                   ease: "easeOut",
                 }}
                 className="card"
-                style={{ overflow: "hidden", position: "relative" }}
+                style={{ overflow: "hidden", position: "relative", cursor: "pointer" }}
                 onMouseMove={handleSpotlight}
+                onClick={() => setSelected(project)}
               >
                 {/* Spotlight glow that follows the cursor */}
                 <div className="card-spotlight" />
@@ -321,6 +338,31 @@ export default function Projects() {
                         <FaExternalLinkAlt /> Live Demo
                       </a>
                     )}
+                    <button
+                      onClick={() => setSelected(project)}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "6px",
+                        fontSize: "0.85rem",
+                        color: "var(--text-primary)",
+                        background: "var(--accent-soft)",
+                        border: "1px solid var(--accent-border)",
+                        borderRadius: "8px",
+                        padding: "4px 10px",
+                        cursor: "pointer",
+                        fontWeight: 500,
+                        transition: "all 0.2s ease",
+                      }}
+                      onMouseEnter={(e) =>
+                        ((e.target as HTMLElement).style.borderColor = "var(--accent)")
+                      }
+                      onMouseLeave={(e) =>
+                        ((e.target as HTMLElement).style.borderColor = "var(--accent-border)")
+                      }
+                    >
+                      <HiInformationCircle /> Detail
+                    </button>
                   </div>
                 </div>
               </motion.div>
@@ -348,6 +390,99 @@ export default function Projects() {
           </motion.div>
         )}
       </div>
+
+      {/* Project detail modal */}
+      <AnimatePresence>
+        {selected && (
+          <motion.div
+            className="project-modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelected(null)}
+          >
+            <motion.div
+              className="project-modal"
+              initial={{ opacity: 0, scale: 0.92, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 30 }}
+              transition={{ type: "spring", damping: 26, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-label={selected.title}
+            >
+              {/* Header with gradient + icon */}
+              <div
+                className="project-modal-header"
+                style={{
+                  background: `linear-gradient(135deg, ${getThumbGradient(selected.id)[0]}33 0%, ${getThumbGradient(selected.id)[1]}33 100%)`,
+                }}
+              >
+                <div className="project-modal-icon">
+                  {(() => {
+                    const firstTag = selected.tags[0];
+                    const icon = firstTag ? resolveTagIcon(firstTag.icon) : null;
+                    if (typeof icon === "string") return icon;
+                    if (icon) {
+                      const IconComp = icon;
+                      return <IconComp />;
+                    }
+                    return selected.title.charAt(0);
+                  })()}
+                </div>
+              </div>
+
+              <div className="project-modal-body">
+                <h3>{selected.title}</h3>
+                <p>{selected.description}</p>
+
+                {selected.features && selected.features.length > 0 && (
+                  <>
+                    <h4>Fitur Utama</h4>
+                    <ul>
+                      {selected.features.map((feature) => (
+                        <li key={feature}>{feature}</li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+
+                <div className="project-modal-tags">
+                  {selected.tags.map((tag) => (
+                    <span key={tag.text} className="chip">
+                      {tag.text}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="project-modal-actions">
+                  {selected.liveUrl && (
+                    <a
+                      href={selected.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary"
+                    >
+                      <FaExternalLinkAlt /> Live Demo
+                    </a>
+                  )}
+                  {selected.githubUrl && (
+                    <a
+                      href={selected.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-outline"
+                    >
+                      <FaGithub /> Code
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

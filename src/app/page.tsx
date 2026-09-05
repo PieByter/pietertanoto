@@ -6,6 +6,7 @@ import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Certifications from "@/components/Certifications";
 import Awards from "@/components/Awards";
+import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import AuroraBackground from "@/components/AuroraBackground";
@@ -22,6 +23,7 @@ export default function Home() {
       <Experience />
       <Awards />
       <Certifications />
+      <Blog />
       <Contact />
       <Footer />
     </main>
