@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { getExperienceDuration } from "@/data/experience";
+import { useMounted } from "@/lib/useMounted";
 
 const STACK = [
   "Java",
@@ -17,6 +18,7 @@ const STACK = [
 ];
 
 export default function Currently() {
+  const mounted = useMounted();
   const currentRole = getExperienceDuration("2026-05", null);
 
   return (
@@ -35,7 +37,8 @@ export default function Currently() {
         Backend Developer <span className="currently-at">@</span> Murni Teguh
       </div>
       <div className="currently-location">
-        Medan Head Office · {currentRole.period} · {currentRole.monthsLabel}
+        Medan Head Office · {currentRole.period}
+        {mounted ? ` · ${currentRole.monthsLabel}` : ""}
       </div>
       <div className="currently-stack">
         {STACK.map((s) => (

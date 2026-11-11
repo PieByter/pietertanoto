@@ -2,9 +2,14 @@
 
 import { motion } from "framer-motion";
 import { experiences, getExperienceDuration } from "@/data/experience";
+import { useMounted } from "@/lib/useMounted";
 import SectionHeading from "./SectionHeading";
 
 export default function Experience() {
+  // Ongoing durations depend on today's date, so reveal them after hydration
+  // to keep the static HTML and the first client render in sync.
+  const mounted = useMounted();
+
   return (
     <section id="experience" className="section">
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem" }}>
@@ -116,20 +121,22 @@ export default function Experience() {
                     <span style={{ fontSize: "0.82rem", color: "var(--text-muted)" }}>
                       {duration.period}
                     </span>
-                    <span
-                      style={{
-                        fontSize: "0.7rem",
-                        fontWeight: 600,
-                        padding: "2px 9px",
-                        borderRadius: "100px",
-                        background: `${exp.color}14`,
-                        border: `1px solid ${exp.color}33`,
-                        color: exp.color,
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      {duration.monthsLabel}
-                    </span>
+                    {(mounted || exp.endDate !== null) && (
+                      <span
+                        style={{
+                          fontSize: "0.7rem",
+                          fontWeight: 600,
+                          padding: "2px 9px",
+                          borderRadius: "100px",
+                          background: `${exp.color}14`,
+                          border: `1px solid ${exp.color}33`,
+                          color: exp.color,
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {duration.monthsLabel}
+                      </span>
+                    )}
                   </div>
 
                   <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
