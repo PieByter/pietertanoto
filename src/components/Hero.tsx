@@ -424,11 +424,16 @@ export default function Hero() {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.4; }
         }
-        /* The absolute scroll cue collides with the social buttons on short
-           mobile/PWA viewports, so hide it instead of overlapping them. */
+        /* Keep the cue below the social buttons on mobile/PWA instead of
+           hiding it, and include the safe-area inset so it never overlaps. */
         @media (max-width: 900px), (max-height: 720px) {
           .hero-scroll-indicator {
-            display: none !important;
+            bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px)) !important;
+          }
+        }
+        @media (max-width: 900px) {
+          .hero-section {
+            padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
           }
         }
         @media (max-width: 768px) {
