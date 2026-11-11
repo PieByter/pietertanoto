@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { getExperienceDuration } from "@/data/experience";
 
 const STACK = [
   "Java",
@@ -16,6 +17,8 @@ const STACK = [
 ];
 
 export default function Currently() {
+  const currentRole = getExperienceDuration("2026-05", null);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -32,7 +35,7 @@ export default function Currently() {
         Backend Developer <span className="currently-at">@</span> Murni Teguh
       </div>
       <div className="currently-location">
-        Medan Head Office · May 2026 — Present
+        Medan Head Office · {currentRole.period} · {currentRole.monthsLabel}
       </div>
       <div className="currently-stack">
         {STACK.map((s) => (

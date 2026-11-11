@@ -28,7 +28,7 @@ export const education: Education[] = [
 
 export const stats: Stat[] = [
     { value: "2+", label: "Years Experience" },
-    { value: "9+", label: "Projects Built" },
+    { value: "12+", label: "Projects Built" },
     { value: "24+", label: "Certifications" },
     { value: "3", label: "Awards Won" },
 ];

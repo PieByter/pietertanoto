@@ -2,10 +2,63 @@ export interface Experience {
   id: number;
   company: string;
   role: string;
-  duration: string;
+  startDate: string; // YYYY-MM
+  endDate: string | null; // YYYY-MM, null means present
   type: string;
   responsibilities: string[];
   color: string;
+}
+
+const MONTH_LABELS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+function parseYearMonth(value: string) {
+  const [year, month] = value.split("-").map(Number);
+  return { year, month };
+}
+
+function formatYearMonth({ year, month }: { year: number; month: number }) {
+  return `${MONTH_LABELS[month - 1]} ${year}`;
+}
+
+/**
+ * Formats an experience range and counts the months inclusively.
+ * A null endDate is treated as "Present" and calculated from today,
+ * so ongoing roles update automatically.
+ */
+export function getExperienceDuration(
+  startDate: string,
+  endDate: string | null
+): { period: string; months: number; monthsLabel: string } {
+  const start = parseYearMonth(startDate);
+  const now = new Date();
+  const end = endDate
+    ? parseYearMonth(endDate)
+    : { year: now.getFullYear(), month: now.getMonth() + 1 };
+
+  const months = Math.max(
+    1,
+    (end.year - start.year) * 12 + (end.month - start.month) + 1
+  );
+
+  return {
+    period: `${formatYearMonth(start)} – ${endDate ? formatYearMonth(end) : "Present"
+      }`,
+    months,
+    monthsLabel: `${months} ${months === 1 ? "month" : "months"}`,
+  };
 }
 
 export const experiences: Experience[] = [
@@ -13,7 +66,8 @@ export const experiences: Experience[] = [
     id: 1,
     company: "Murni Teguh (Medan Head Office)",
     role: "Backend Developer",
-    duration: "May 2026 - Present",
+    startDate: "2026-05",
+    endDate: null,
     type: "Full-time",
     responsibilities: [
       "Develop and maintain backend services using Java (Spring Boot) as the primary stack.",
@@ -28,7 +82,8 @@ export const experiences: Experience[] = [
     id: 2,
     company: "Sumatra Tobacco Trading Company (STTC)",
     role: "Web Developer",
-    duration: "Jul 2025 - Dec 2025",
+    startDate: "2025-07",
+    endDate: "2025-12",
     type: "Full-time",
     responsibilities: [
       "Developed and maintained web applications using Laravel (PHP) as the primary backend framework.",
@@ -42,7 +97,8 @@ export const experiences: Experience[] = [
     id: 3,
     company: "BPJS Ketenagakerjaan",
     role: "IT Support Internship (AI Developer)",
-    duration: "Sep 2024 - Dec 2024",
+    startDate: "2024-09",
+    endDate: "2024-12",
     type: "Internship",
     responsibilities: [
       "Built and integrated an AI-powered chatbot to automate customer service workflows.",
@@ -57,7 +113,8 @@ export const experiences: Experience[] = [
     id: 4,
     company: "Bangkit Academy 2024 Batch 1",
     role: "Android Mobile Developer (Capstone: Auxilium)",
-    duration: "Jan 2024 — Jun 2024",
+    startDate: "2024-01",
+    endDate: "2024-06",
     type: "Remote",
     responsibilities: [
       "Worked as an Android Developer using Kotlin and Android Studio.",

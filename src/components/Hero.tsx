@@ -25,7 +25,7 @@ const socialLinks = [
 
 const heroStats = [
   { value: "2+", label: "Years Experience" },
-  { value: "9+", label: "Projects" },
+  { value: "12+", label: "Projects" },
   { value: "24+", label: "Certifications" },
 ];
 
@@ -46,6 +46,7 @@ export default function Hero() {
   return (
     <section
       id="home"
+      className="hero-section"
       style={{
         minHeight: "100vh",
         display: "flex",
@@ -394,6 +395,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
+        className="hero-scroll-indicator"
         style={{
           position: "absolute",
           bottom: "4.5rem",
@@ -421,6 +423,13 @@ export default function Hero() {
         @keyframes pulse {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.4; }
+        }
+        /* The absolute scroll cue collides with the social buttons on short
+           mobile/PWA viewports, so hide it instead of overlapping them. */
+        @media (max-width: 900px), (max-height: 720px) {
+          .hero-scroll-indicator {
+            display: none !important;
+          }
         }
         @media (max-width: 768px) {
           .hero-grid {

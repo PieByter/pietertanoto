@@ -45,7 +45,7 @@ const INTENTS: Intent[] = [
     {
         keywords: ["project", "proyek", "portfolio", "karya", "aplikasi", "app"],
         reply:
-            "Beberapa project unggulan: AI Powered POS System, FocusPodo (produktivitas), LaporBang (deteksi jalan rusak), dan RESTful API. Lihat lengkapnya di section Projects! 🚀",
+            "Beberapa project unggulan: Prima Motor POS (bengkel motor), VaultKey (password manager Flutter), Money Management (keuangan pribadi), PocketLedger (tracker TCG Pocket), dan FocusPodo. Lihat lengkapnya di section Projects! 🚀",
     },
     {
         keywords: ["pendidikan", "kuliah", "universitas", "education", "s.k", "sarjana", "ijazah"],

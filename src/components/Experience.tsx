@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { experiences } from "@/data/experience";
+import { experiences, getExperienceDuration } from "@/data/experience";
 import SectionHeading from "./SectionHeading";
 
 export default function Experience() {
@@ -22,6 +22,7 @@ export default function Experience() {
 
           {experiences.map((exp, i) => {
             const isLeft = i % 2 === 0;
+            const duration = getExperienceDuration(exp.startDate, exp.endDate);
             return (
               <motion.div
                 key={exp.id}
@@ -103,9 +104,33 @@ export default function Experience() {
                     </span>
                   </div>
 
-                  <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", marginBottom: "1rem" }}>
-                    {exp.duration}
-                  </p>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      flexWrap: "wrap",
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    <span style={{ fontSize: "0.82rem", color: "var(--text-muted)" }}>
+                      {duration.period}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: "0.7rem",
+                        fontWeight: 600,
+                        padding: "2px 9px",
+                        borderRadius: "100px",
+                        background: `${exp.color}14`,
+                        border: `1px solid ${exp.color}33`,
+                        color: exp.color,
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {duration.monthsLabel}
+                    </span>
+                  </div>
 
                   <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                     {exp.responsibilities.map((resp, j) => (
